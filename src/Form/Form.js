@@ -1,5 +1,5 @@
 import React from 'react';
-import Aux from '../components/hoc/Aux';
+import Aux from '../components/hoc/Auxx';
 import Navbar from '../components/Navigation/Navbar';
 import Mainpage from '../components/Mainpage/Mainpage';
 const form =(props)=>(

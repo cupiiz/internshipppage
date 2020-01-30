@@ -1,5 +1,5 @@
 import React from 'react';
-import Aux from '../hoc/Aux';
+import Aux from '../hoc/Auxx';
 import '../Mainpage/Mainpage.css';
 import { Container, Card, CardDeck } from 'react-bootstrap';
 const mainpage = (props) => (

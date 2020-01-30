@@ -1,5 +1,5 @@
 import React from 'react';
-import Aux from '../hoc/Aux';
+import Aux from '../hoc/Auxx';
 import { Container, Col, Row, Form, Button, } from 'react-bootstrap';
 import '../Application/Application.css';
 const application = (props) => (
