@@ -1,18 +1,14 @@
 import React from 'react';
 import Aux from '../components/hoc/Auxx';
-import Navbar from '../components/Navigation/Navbar';
 import Mainpage from '../components/Mainpage/Mainpage';
-const form =(props)=>(
-    <Aux>
-    <Navbar/>
-    <img src="../../../bg.png" width="100%" height="650px" background-position="center" background-repeat="no-repeat"
-  background-size="cover" position ="relative" />
-    <Mainpage/>
-      
-    
-    <main>
-        {props.children}
-    </main>
-    </Aux>
+import Image from 'react-bootstrap/Image'
+import banner from '../assets/img/bg.png';
+const form = (props) => (
+  <Aux>
+    <div >
+      <Image src={banner} width="100%" fluid/> 
+      </div>
+    <Mainpage />
+  </Aux>
 );
 export default form;

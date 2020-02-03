@@ -1,15 +1,20 @@
 .header-2{
     color:#03a84e;
     text-align: center;
-    font-size: 36px;
-    font-weight: 1;
-    margin-top: 80px;
-    margin-bottom: 40px;
+    font-size: 200%;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+    font-weight: 300;
+    margin-top: 50px;
+    margin-bottom: 30px;
 }
 
 .normal-text{
     color: #FFFFFF;
-    
+    font-size: 110%;
+    line-height: 145%;
+    font-weight: 300;
+
     
     
 }
@@ -17,6 +22,35 @@
 .green-text{
     color:#03a84e;
     text-align: center;
-    font-size: 24px !important;
-    font-weight: 1 !important;
+    font-size: 150% !important;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+    font-weight: 350 !important; 
+    
+   
+}
+
+.box-co{
+    width: 100% ;
+    display: block ;
+    
+}
+
+.button-main{
+    background-color: #171717 !important;
+    border:2px #03a84e solid !important;
+    border-radius: 5px;
+    height:10%;
+    width:15%;
+    margin:80px auto !important;
+    display:block !important; 
+}
+.button-main:hover{
+    background-color: #eee !important;
+} 
+.button-main:focus {
+    background-color: #eee !important;
+}
+.btn-join-event {
+    margin-bottom: 0;
 }

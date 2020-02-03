@@ -1,0 +1,33 @@
+.cardimg {
+    width: 100%;
+    height: 100%;
+    
+}
+
+.card-font{
+   
+        color: #FFFFFF;
+        font-size: 90%;
+        line-height: 145%;
+        font-weight: 300;
+  
+}
+
+.card-box{
+
+    display: flex;
+    flex-flow: row wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    
+}
+.header-card{
+    color:#03a84e;
+    text-align: center;
+    font-size: 200%;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+    font-weight: 300;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}

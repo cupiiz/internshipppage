@@ -1,56 +1,113 @@
 import React from 'react';
 import Aux from '../hoc/Auxx';
 import '../Mainpage/Mainpage.css';
-import { Container, Card, CardDeck } from 'react-bootstrap';
+import { Container, Card, CardDeck, Carousel, Button } from 'react-bootstrap';
+import CardFlip from './Cardflip';
+import { NavLink } from "react-router-dom";
+
+
 const mainpage = (props) => (
     <Aux>
-        <Container style={{ maxWidth: "50% "}}>
-            <div className="header-2">THE RUNWAY AGENCY X INTERNSHIP</div>
+        
+
+        <Container style={{ maxWidth: "50% " }}>
+            <h2 className="header-2">THE RUNWAY AGENCY X INTERNSHIP</h2>
             <div className="normal-text"><p>We are a full-service digital provider. We are both consultants in business planning, marketing plans and digital content media creators, including software development that will help develop your business. And society to move steadily and sustainably.</p></div>
         </Container>
 
         <Container>
 
-            <CardDeck style={{ marginTop: "60px "}}>
-                <Card style={{ backgroundColor:"#171717", border:"0px"}}>
+            <CardDeck style={{ marginTop: "60px " }}>
+
+                <Card style={{ backgroundColor: "#171717", border: "0px" }}>
                     <Card.Img variant="top" src="../../../bg.png" />
-                    <Card.Body style={{ backgroundColor:"#171717",padding:"0px",marginTop:"20px"}}>
+                    <Card.Body style={{ backgroundColor: "#171717", padding: "0px", marginTop: "20px" }}>
                         <Card.Title className="green-text">TEAM WORK</Card.Title>
                         <Card.Text className="normal-text">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-      </Card.Text>
-                    </Card.Body>
-                    
-                </Card>
-                <Card style={{ backgroundColor:"#171717", border:"0px"}}>
-                    <Card.Img variant="top" src="../../../bg.png" />
-                    <Card.Body style={{ backgroundColor:"#171717",padding:"0px",marginTop:"20px"}}>
-                        <Card.Title className="green-text">PlANNING</Card.Title>
-                        <Card.Text className="normal-text">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                         </Card.Text>
                     </Card.Body>
-                   
+
                 </Card>
-                <Card style={{ backgroundColor:"#171717", border:"0px"}}>
+
+                <Card style={{ backgroundColor: "#171717", border: "0px" }}>
                     <Card.Img variant="top" src="../../../bg.png" />
-                    <Card.Body style={{ backgroundColor:"#171717",padding:"0px",marginTop:"20px"}}>
+                    <Card.Body style={{ backgroundColor: "#171717", padding: "0px", marginTop: "20px" }}>
+                        <Card.Title className="green-text">PlANNING</Card.Title>
+                        <Card.Text className="normal-text">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        </Card.Text>
+                    </Card.Body>
+
+                </Card>
+
+                <Card style={{ backgroundColor: "#171717", border: "0px" }}>
+                    <Card.Img variant="top" src="../../../bg.png" />
+                    <Card.Body style={{ backgroundColor: "#171717", padding: "0px", marginTop: "20px" }}>
                         <Card.Title className="green-text">MEETING</Card.Title>
                         <Card.Text className="normal-text">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-      </Card.Text>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        </Card.Text>
                     </Card.Body>
-                    
                 </Card>
+
             </CardDeck>
 
+            <Container style={{ maxWidth: "85% " }}>
+                <Carousel style={{ marginTop: "50px ", width: "100%" }}>
+
+                    <Carousel.Item >
+                        <img
+                            className="box-co"
+                            src="../../../bg.png"
+                            alt="First slide"
+                        />
+                        <Carousel.Caption>
+                            <h3>1</h3>
+
+                        </Carousel.Caption>
+                    </Carousel.Item>
+
+                    <Carousel.Item>
+                        <img
+                            className="box-co"
+                            src="../../../bg.png"
+                            alt="Second slide"
+                        />
+
+                        <Carousel.Caption>
+                            <h3>2</h3>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+
+                    <Carousel.Item>
+                        <img
+                            className="box-co"
+                            src="../../../bg.png"
+                            alt="Third slide"
+                        />
+
+                        <Carousel.Caption>
+                            <h3>3</h3>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+
+                </Carousel>
+            </Container>
         </Container>
+        <div style={{ backgroundColor:"#171717" }}>>
+         
+            <CardFlip />
+            </div>
 
+        <Container >
+            <NavLink to="/join"> 
+                <Button className="button-main" >
+                    <p style={{ color: "#03a84e", fontSize: "32px" }} className="btn-join-event" >JOIN US</p>
+                </Button>
+            </NavLink >
+        </Container >
 
-
-        <main>
-            {props.children}
-        </main>
     </Aux>
 );
 export default mainpage;

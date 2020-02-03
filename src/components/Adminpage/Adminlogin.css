@@ -1,0 +1,40 @@
+.auth-box {
+    background-color: #fff;
+    border: 0px;
+    padding: 40px;
+  }
+  
+  .auth-box input {
+    border: 0px;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    margin: 40px 0px;
+    font-size: 14px;
+    color: #f1f1f1;
+  }
+  
+  .auth-box .btn-primary {
+    width: 100%;
+    padding: 10px;
+    border: 0px;
+    background: #4b6cb7;
+    /* fallback for old browsers */
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #182848, #4b6cb7);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+  
+  .auth-box .topic {
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #213a80;
+  }
+  
+  .auth-box .line {
+    background: linear-gradient(#222, #222), linear-gradient(to right, #4b6cb7, #182848);
+    background-origin: padding-box, border-box;
+    background-repeat: no-repeat;
+    /* this is important */
+    border: 3px solid transparent;
+    width: 14%;
+  }

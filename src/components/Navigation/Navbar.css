@@ -1,4 +1,24 @@
-.nav-font{
+.nav-font:visited {
+    color:#ffffff !important; 
+    margin-right: 10px;
+    
+
+}
+.nav-font:hover {
+    color:#ffffffa8 !important; 
+    margin-right: 10px;
+    
+
+}
+
+.nav-font {
     color:#ffffff !important; 
     margin-right: 10px;
 }
+.navbar-light .navbar-toggler-icon::before  {
+    background-image: url('../../assets/icons/bars-solid.svg') !important;
+    /* content: '/f0c9';
+    color: #eee; */
+
+}
+
