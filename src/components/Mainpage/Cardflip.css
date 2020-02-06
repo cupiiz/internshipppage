@@ -7,7 +7,7 @@
 .card-font{
    
         color: #FFFFFF;
-        font-size: 90%;
+        font-size: 12px;
         line-height: 145%;
         font-weight: 300;
   
@@ -24,10 +24,15 @@
 .header-card{
     color:#03a84e;
     text-align: center;
-    font-size: 200%;
+    font-size: 30px;
     word-spacing: 4px;
     letter-spacing: 1px;
     font-weight: 300;
-    margin-top: 30px;
+    
     margin-bottom: 30px;
 }
+
+.card-back-side{
+    background-color: #0d0d0d !important;
+}
+

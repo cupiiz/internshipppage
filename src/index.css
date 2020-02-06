@@ -1,12 +1,15 @@
 
 @import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700&display=swap');
 
-body, html {
+body, html{
   margin: 0;
   padding:0;
   min-width: 100vw;
   font-family: 'Lato', sans-serif !important;
-  background-color: #171717;
+  background-color: #0d0d0d !important;
+  overflow-x:hidden;
+ 
+  
 }
 
 a:hover {
@@ -19,79 +22,54 @@ button:focus {
   border-radius: 5px;
 }
 
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen
-and (min-device-width : 320px)
-and (max-device-width : 480px) {
-/* STYLES GO HERE */
+@media only screen and (max-width: 768px) {
+  .font-color{
+  
+    font-size: 15px !important;
+    
 }
  
-/* Smartphones (landscape) ----------- */
-@media only screen
-and (min-width : 321px) {
-/* STYLES GO HERE */
+  .header{
+    color:#03a84e;
+    
+    font-size: 22px !important;
+    
+    margin-top: 30px !important;
+
 }
- 
-/* Smartphones (portrait) ----------- */
-@media only screen
-and (max-width : 320px) {
-/* STYLES GO HERE */
+
+  
+  .pp-ul-padding{
+    
+    padding-inline-start: 15px;
 }
- 
-/* iPads (portrait and landscape) ----------- */
-@media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1024px) {
-/* STYLES GO HERE */
+  .fix-app-form{
+    width:100% !important;
+  }
+  .normal-text{
+  
+  font-size: 15px !important;
+  
+  }
+  .header-2{
+    
+    font-size: 27px !important;
+    
 }
+
+.card-font{
+   
  
-/* iPads (landscape) ----------- */
-@media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1024px)
-and (orientation : landscape) {
-/* STYLES GO HERE */
+  font-size: 15px !important;
+  
+
 }
+.header-card{
+  
+  font-size: 27px !important;
+  
+  
  
-/* iPads (portrait) ----------- */
-@media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1024px)
-and (orientation : portrait) {
-/* STYLES GO HERE */
 }
- 
-/* Desktops and laptops ----------- */
-@media only screen
-and (min-width : 1224px) {
-/* STYLES GO HERE */
-}
- 
-/* Large screens ----------- */
-@media only screen
-and (min-width : 1824px) {
-/* STYLES GO HERE */
-}
- 
-/* iPhone 5 (portrait &amp; landscape)----------- */
-@media only screen
-and (min-device-width : 320px)
-and (max-device-width : 568px) {
-/* STYLES GO HERE */
-}
- 
-/* iPhone 5 (landscape)----------- */
-@media only screen
-and (min-device-width : 320px)
-and (max-device-width : 568px)
-and (orientation : landscape) {
-/* STYLES GO HERE */
-}
- 
-/* iPhone 5 (portrait)----------- */
-@media only screen
-and (min-device-width : 320px)
-and (max-device-width : 568px)
-and (orientation : portrait) {
-/* STYLES GO HERE */
+
 }

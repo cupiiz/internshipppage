@@ -4,15 +4,16 @@ import '../Mainpage/Mainpage.css';
 import { Container, Card, CardDeck, Carousel, Button } from 'react-bootstrap';
 import CardFlip from './Cardflip';
 import { NavLink } from "react-router-dom";
-
+import Joinus from "../Mainpage/Joinus";
 
 const mainpage = (props) => (
     <Aux>
-        
 
-        <Container style={{ maxWidth: "50% " }}>
+
+        <Container id="about">
             <h2 className="header-2">THE RUNWAY AGENCY X INTERNSHIP</h2>
-            <div className="normal-text"><p>We are a full-service digital provider. We are both consultants in business planning, marketing plans and digital content media creators, including software development that will help develop your business. And society to move steadily and sustainably.</p></div>
+            <p className="normal-text">We are a full-service digital provider. We are both consultants in business planning, marketing plans and digital content media creators, including software development that will help develop your business. And society to move steadily and sustainably.</p>
+            
         </Container>
 
         <Container>
@@ -53,7 +54,7 @@ const mainpage = (props) => (
 
             </CardDeck>
 
-            <Container style={{ maxWidth: "85% " }}>
+            <Container style={{ maxWidth: "100% ", padding: "0" }}>
                 <Carousel style={{ marginTop: "50px ", width: "100%" }}>
 
                     <Carousel.Item >
@@ -95,18 +96,14 @@ const mainpage = (props) => (
                 </Carousel>
             </Container>
         </Container>
-        <div style={{ backgroundColor:"#171717" }}>>
-         
-            <CardFlip />
-            </div>
+        <div style={{ backgroundColor: "#1a1a1a" }}>>
 
-        <Container >
-            <NavLink to="/join"> 
-                <Button className="button-main" >
-                    <p style={{ color: "#03a84e", fontSize: "32px" }} className="btn-join-event" >JOIN US</p>
-                </Button>
-            </NavLink >
-        </Container >
+            <CardFlip />
+        </div>
+
+        <Container>
+            <Joinus/>
+        </Container>
 
     </Aux>
 );

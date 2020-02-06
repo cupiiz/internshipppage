@@ -1,0 +1,18 @@
+.button-main{
+    background-color: #171717 !important;
+    border:2px #03a84e solid !important;
+    border-radius: 5px;
+    height:10%;
+    
+    margin:80px auto !important;
+    display:block !important; 
+}
+.button-main:hover{
+    background-color: #eee !important;
+} 
+.button-main:focus {
+    background-color: #eee !important;
+}
+.btn-join-event {
+    margin-bottom: 0;
+}

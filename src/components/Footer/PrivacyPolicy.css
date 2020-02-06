@@ -1,0 +1,24 @@
+.pp-text{
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 145%;
+    font-weight: 300;
+    word-break: break-word;
+    
+    
+}
+ .pp-header{
+    color:#03a84e;
+    margin-top: 40px;
+    font-size: 22px;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+    font-weight: 350 !important;  
+} 
+.pp-header-2{
+    color:#03a84e;
+    font-size: 16px;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+    font-weight: 350 !important;  
+}

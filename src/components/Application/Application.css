@@ -1,9 +1,20 @@
+
 .font-color{
     color:#03a84e;
+    font-size: 18px;
+    font-weight: 350 ; 
 }
 .header{
     color:#03a84e;
-    margin:25px 0px;
-    font-size: 36px;
-    font-weight: 1;
+    
+    font-size: 30px;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+    font-weight: 300;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.input-group-text {
+padding: 0.3rem !important;
 }

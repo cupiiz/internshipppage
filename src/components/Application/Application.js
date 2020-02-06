@@ -2,13 +2,17 @@ import React from 'react';
 import Aux from '../hoc/Auxx';
 import { Container, Col, Row, Form, Button, } from 'react-bootstrap';
 import '../Application/Application.css';
+import Image from 'react-bootstrap/Image'
+import banner from '../../assets/img/bg.png';
+import Navbarapp from '../Navigation/Navbarapp';
+import { Link } from "react-router-dom";
+import Footer from "../Footer/Footer";
+
 const application = (props) => (
     <Aux>
-
-        <img src="../../../bg.png" width="100%" height="450px" background-position="center" background-repeat="no-repeat"
-            background-size="cover" position="relative" />
-
-        <Container style={{ maxWidth: "50% " }}>
+        <Navbarapp />
+        <Image src={banner} width="100% " fluid />
+        <Container style={{ width: "50%" }} className="fix-app-form">
 
             <div className="header">Application Form</div>
             <Form className="font-color">
@@ -112,8 +116,8 @@ const application = (props) => (
                     </Form.Group>
                 </Form.Row>
                 <Form.Label>Resume</Form.Label>
-                <div className="input-group" style={{width:"49.5%"}} >
-                    <div className="input-group-prepend">
+                <div className="input-group"  >
+                    <div className="input-group-prepend ">
                         <span className="input-group-text" id="inputGroupFileAddon01">
                             Upload
                         </span>
@@ -130,15 +134,16 @@ const application = (props) => (
                         </label>
                     </div>
                 </div>
-
+                <Link to='/applicationreply' className="nav-font">
                 <Button style={{ backgroundColor: "#03a84e", borderColor: "#03a84e", margin: "35px 0px" }} type="submit">
-                    Submit Application
-  </Button>
+                   
+                        Submit Application
+                </Button>
+                </Link>
+
             </Form>
         </Container>
-        <main>
-            {props.children}
-        </main>
+        <Footer/>
     </Aux>
 );
 export default application;

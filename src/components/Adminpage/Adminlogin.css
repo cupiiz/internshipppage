@@ -1,14 +1,26 @@
 .auth-box {
-    background-color: #fff;
+    background-color: #171717;
     border: 0px;
-    padding: 40px;
+    padding: 80px;
+    width: 500px;
+    height: auto;
+    margin: auto;
+    
   }
   
+  .auth-box-2 {
+    background-color: #171717;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    
+  }
   .auth-box input {
     border: 0px;
     border-bottom: 1px solid #ccc;
     border-radius: 0;
-    margin: 40px 0px;
+    margin: 40px auto;
+    
     font-size: 14px;
     color: #f1f1f1;
   }
@@ -17,24 +29,37 @@
     width: 100%;
     padding: 10px;
     border: 0px;
-    background: #4b6cb7;
+    background: #03a84e;
     /* fallback for old browsers */
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #182848, #4b6cb7);
+    background: linear-gradient(to right, #039243, #02fd73);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
   
   .auth-box .topic {
     font-weight: 600;
     letter-spacing: 2px;
-    color: #213a80;
+    color: #03a84e;
   }
   
   .auth-box .line {
-    background: linear-gradient(#222, #222), linear-gradient(to right, #4b6cb7, #182848);
+    background: linear-gradient(#222, #222), linear-gradient(to right, #02fd73, #03a84e);
     background-origin: padding-box, border-box;
     background-repeat: no-repeat;
     /* this is important */
     border: 3px solid transparent;
-    width: 14%;
+    width: 20%;
   }
+
+  
+
+
+
+
+
+
+
+
+
+
+  

@@ -1,0 +1,90 @@
+
+/* Toggle Styles */
+
+.viewport {
+  padding-left: 250px;
+  height: 100vh;
+}
+
+.content {
+  width: 100%;
+  position: relative;
+  margin-right: 0;
+  border-bottom: 1px solid #03a84e;
+  color: #fff;
+  padding:40px 0px 14px 20px;
+
+}
+
+/* Sidebar Styles */
+
+.sidebar {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 250px;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: #171717;
+  
+  border-right: 1px solid #03a84e;
+  
+}
+
+.sidebar header {
+  background-color: #171717;
+ 
+  line-height: 52px;
+  text-align: center;
+  border-bottom: 1px solid #03a84e;
+}
+
+
+.sidebarmenu{
+    flex: none !important;
+    border-bottom: 1px solid #03a84e;
+    padding:15px 0px 15px 30px;
+    font-size: 12px;
+    color: #6c757d;
+}
+
+.sidebarmenu:hover{
+  background-color: #03a84e;
+  transition: background-color 0.3s;
+  color: #fff;
+}
+
+
+.sidebarmenu2{
+    list-style-type: none;
+    padding-inline-start: 0px;
+    
+}
+.headimg{
+    padding: 15px;
+    
+}
+
+.main-table-scope{
+  color: #03a84e;
+  
+}
+.main-table-data-1{
+  color: #fff;
+}
+.main-table-data-2{
+  color: #fff;
+  background-color:#1b1b1b !important;
+}
+
+.table td, .table th{
+  border-top: 0 !important;
+  font-size: 15px;
+  font-weight: normal;
+}
+.table thead th{
+  border-bottom: 2px solid #03a84e !important;
+  font-size: 15px;
+  
+}
