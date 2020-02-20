@@ -1,5 +1,5 @@
 import React from 'react';
-import Aux from '../hoc/Auxx';
+
 import { Container, Col, Row, Form, Button, } from 'react-bootstrap';
 import '../Application/Application.css';
 import Image from 'react-bootstrap/Image'
@@ -7,9 +7,14 @@ import banner from '../../assets/img/bg.png';
 import Navbarapp from '../Navigation/Navbarapp';
 import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
+import axios from 'axios';
 
-const application = (props) => (
-    <Aux>
+
+const application = (props) => {
+    
+    
+    return(
+        <>
         <Navbarapp />
         <Image src={banner} width="100% " fluid />
         <Container style={{ width: "50%" }} className="fix-app-form">
@@ -144,6 +149,8 @@ const application = (props) => (
             </Form>
         </Container>
         <Footer/>
-    </Aux>
-);
+        </>
+    )
+    };
+
 export default application;

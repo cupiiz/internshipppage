@@ -4,6 +4,7 @@ import './Adminmainpage.css';
 import Adminsidebar from './Adminsidebar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit,faEye,faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Link} from "react-router-dom";
 
 const trwdatatable = (props) => {
     return (
@@ -29,47 +30,25 @@ const trwdatatable = (props) => {
                         </tr>
                     </thead>
                     <tbody >
-                        <tr className="main-table-data-1">
+                        
+                        <tr className="main-table-data-2">
                             <th scope="row">1</th>
                             <td>sssss</td>
                             <td>sssss</td>
                             <td>sssss</td>
                             <td>sssss</td>
                             <td>sssss</td>
+                            
                             <td>
-                            <button
-                                className="btn btn-success btn-sm"
-
-                                style={{marginRight: '5px'}}>
-                                <FontAwesomeIcon icon={faEye} />
-                            </button>
-                            <button
-                                className="btn btn-warning btn-sm"
-                               
-                                style={{marginRight: '5px'}}>
-                                <FontAwesomeIcon icon={faEdit} />
-                            </button>
-                            <button
-                                className="btn btn-danger btn-sm"
-                                
-                                style={{marginRight: '5px'}}>
-                                <FontAwesomeIcon icon={faTrash} />
-                            </button>
-                            </td>
-                        </tr>
-                        <tr className="main-table-data-2">
-                            <th scope="row">2</th>
-                            <td>sssss</td>
-                            <td>sssss</td>
-                            <td>sssss</td>
-                            <td>sssss</td>
-                            <td>sssss</td>
-                            <td><button
+                                <Link to='/showdatapage'>
+                                <button
                                 className="btn btn-success btn-sm"
                                     
                                 style={{marginRight: '5px'}}>
                                 <FontAwesomeIcon icon={faEye} />
                             </button>
+                            </Link>
+
                             <button
                                 className="btn btn-warning btn-sm"
                                

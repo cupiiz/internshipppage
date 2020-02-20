@@ -3,6 +3,10 @@ import { Container, Col, Row, Form, Button, } from 'react-bootstrap';
 import './Adminmainpage.css';
 import { Link} from "react-router-dom";
 const adminsidebar = (props) => {
+    const onLogout = () => {
+        localStorage.clear();
+        window.location.href = '/home';
+    }
     return (
 
         <div className="sidebar">
@@ -21,21 +25,21 @@ const adminsidebar = (props) => {
                     
                 </Link>
 
-                <a href="">
+                <div href="">
                     <li className="sidebarmenu">
                         TECMOVE
                     </li>
-                </a>
-                <a href="">
+                </div>
+                <div>
                     <li className="sidebarmenu">
                         ADMIN
                      </li>
-                </a>
-                <a href="">
+                </div>
+                <Link onClick={onLogout}>
                     <li className="sidebarmenu">
                         LOGOUT
                     </li>
-                </a>
+                </Link>
             </ul>
         </div>
 

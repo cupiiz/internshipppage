@@ -88,3 +88,71 @@
   font-size: 15px;
   
 }
+
+.showdatapage-layout{
+  background-color: #171717 !important;
+  height: 75vh;
+  
+  
+}
+.personalinfo-layout{
+  background-color: #292929!important;
+  height: 90%;
+ 
+  margin: 50px 50px 20px 50px;
+}
+
+.personalinfo-header{
+  color:#03a84e;
+  
+    font-size: 30px;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+    font-weight: 300;
+    padding: 10px;
+
+}
+
+.showdata-close-button{
+  text-align: center;
+}
+
+.personalinfo-info-resume{
+  color: #1189F8;
+    font-size: 15px;
+    line-height: 145%;
+    font-weight: 300;
+    padding-left: 20px;
+    word-break: break-word;
+    margin: 4px;
+
+}
+.box{
+  margin: auto;
+  display: block;
+}
+.box > span:nth-child(1){
+  width: 45%;
+ 
+  text-align: right;
+  color: #03a84e;
+  font-size: 15px;
+  line-height: 145%;
+  font-weight: 400;
+  word-break: break-word;
+  margin-bottom: 10px;
+}
+.box > span:nth-child(2){
+  width: 45%;
+  text-align: left;
+  margin-left: 20px;
+  color: #FFFFFF;
+    font-size: 15px;
+    line-height: 145%;
+    font-weight: 300;
+    word-break: break-word;
+    margin-bottom: 10px;
+    
+}
+
+
