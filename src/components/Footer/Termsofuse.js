@@ -1,10 +1,11 @@
 import React from 'react';
 import Aux from '../hoc/Auxx';
-import { Container, Col, Row, Form, Button, } from 'react-bootstrap';
+import { Container} from 'react-bootstrap';
 import Image from 'react-bootstrap/Image'
 import banner from '../../assets/img/bg.png';
 import Navbarapp from '../Navigation/Navbarapp';
 import './PrivacyPolicy.css';
+import  Footer  from './Footer';
 const termsofuse = (props) => (
     <Aux>
         <Navbarapp />
@@ -145,7 +146,7 @@ This is the most updated Version 1.0 of Terms and Conditions applied to all of o
 
 
         </Container>
-
+        <Footer/>
     </Aux>
 );
 export default termsofuse;

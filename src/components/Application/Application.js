@@ -1,156 +1,79 @@
-import React from 'react';
+import React, { Fragment } from 'react'
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid'
+import Paper from '@material-ui/core/Paper'
+import StepperForm from './StepperForm'
+import Navbarapp from '.././Navigation/Navbarapp';
+const useStyles = makeStyles(theme => ({
+    logo: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '0.5rem',
+        color: '#745c97',
+        fontWeight: 'bold',
+        letterSpacing: '1rem'
+    },
+    border: {
+        border: '0.15rem solid #d597ce',
+        borderRadius: '2px',
+        padding: '2%',
+        width: '19rem',
+        textAlign: 'center'
+    },
+    topLayout: {
+        margin: '4rem 0',
+        [theme.breakpoints.down('xs')]: {
+            margin: '1rem 0'
+        }
+    },
+    paperLayout: {
+        padding: '2rem',
+        [theme.breakpoints.up('md')]: {
+            width: '35em'
+        },
+        marginTop: '10rem',
+        margin: 'auto',
+        border: '1px solid #ebedf0',
+        borderRadius: '4px',
+        [theme.breakpoints.down('xs')]: {
+            marginTop: '3rem'
+        }
+    },
+}));
 
-import { Container, Col, Row, Form, Button, } from 'react-bootstrap';
-import '../Application/Application.css';
-import Image from 'react-bootstrap/Image'
-import banner from '../../assets/img/bg.png';
-import Navbarapp from '../Navigation/Navbarapp';
-import { Link } from "react-router-dom";
-import Footer from "../Footer/Footer";
-import axios from 'axios';
-
-
-const application = (props) => {
+export default function Register() {
+    const classes = useStyles();
+    return (
     
     
-    return(
-        <>
-        <Navbarapp />
-        <Image src={banner} width="100% " fluid />
-        <Container style={{ width: "50%" }} className="fix-app-form">
-
-            <div className="header">Application Form</div>
-            <Form className="font-color">
-                <Form.Row>
-                    <Form.Group as={Col} controlId="formGridFirstName">
-                        <Form.Label>First Name</Form.Label>
-                        <Form.Control type="text" placeholder="First Name" />
-                    </Form.Group>
-
-                    <Form.Group as={Col} controlId="formGridLastName">
-                        <Form.Label>Last Name</Form.Label>
-                        <Form.Control type="text" placeholder="Last Name" />
-                    </Form.Group>
-                </Form.Row>
-
-                <Form.Row>
-                    <Form.Group as={Col} controlId="formGridEmail">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" placeholder="Email" />
-                    </Form.Group>
-
-                    <Form.Group as={Col} controlId="formGridPhoneNumber">
-                        <Form.Label>Phone Number</Form.Label>
-                        <Form.Control type="text" placeholder="Phone Number" />
-                    </Form.Group>
-                </Form.Row>
-
-                <Form.Row>
-
-                    <Form.Group as={Col} controlId="formGridUniversity">
-                        <Form.Label>University</Form.Label>
-                        <Form.Control as="select">
-                            <option>Choose...</option>
-                            <option>...</option>
-                        </Form.Control >
-                    </Form.Group>
-
-                    <Form.Group as={Col} controlId="formGridFaculty">
-                        <Form.Label>Faculty</Form.Label>
-                        <Form.Control type="text" placeholder="Faculty" />
-                    </Form.Group>
-
-                    <Form.Group as={Col} controlId="formGridBranch">
-                        <Form.Label>Branch</Form.Label>
-                        <Form.Control type="text" placeholder="Branch" />
-                    </Form.Group>
-                </Form.Row>
-
-                <Form.Row>
-
-                    <Form.Group as={Col} controlId="formGridTeam">
-                        <Form.Label>Team</Form.Label>
-                        <Form.Control as="select">
-                            <option>Choose...</option>
-                            <option>...</option>
-                        </Form.Control >
-                    </Form.Group>
-
-                    <Form.Group as={Col} controlId="formGridPosition">
-                        <Form.Label>Position 1</Form.Label>
-                        <Form.Control as="select">
-                            <option>Choose...</option>
-                            <option>...</option>
-                        </Form.Control >
-                    </Form.Group>
-
-                    <Form.Group as={Col} controlId="formGridPosition2">
-                        <Form.Label>Position 2</Form.Label>
-                        <Form.Control as="select">
-                            <option>Choose...</option>
-                            <option>...</option>
-                        </Form.Control >
-                    </Form.Group>
-
-                    <Form.Group as={Col} controlId="formGridPosition3">
-                        <Form.Label>Position 3</Form.Label>
-                        <Form.Control as="select">
-                            <option>Choose...</option>
-                            <option>...</option>
-                        </Form.Control >
-                    </Form.Group>
-                </Form.Row>
-                <Form.Row>
-
-                    <Form.Group as={Col} controlId="formGridYear">
-                        <Form.Label>Year</Form.Label>
-                        <Form.Control as="select">
-                            <option>Choose...</option>
-                            <option>...</option>
-                        </Form.Control >
-                    </Form.Group>
-
-                    <Form.Group as={Col} controlId="formGridStartDate">
-                        <Form.Label>Start Date</Form.Label>
-                        <Form.Control type="text" placeholder="dd/mm" />
-                    </Form.Group>
-
-                    <Form.Group as={Col} controlId="formGridEndDate">
-                        <Form.Label>End Date</Form.Label>
-                        <Form.Control type="text" placeholder="dd/mm" />
-                    </Form.Group>
-                </Form.Row>
-                <Form.Label>Resume</Form.Label>
-                <div className="input-group"  >
-                    <div className="input-group-prepend ">
-                        <span className="input-group-text" id="inputGroupFileAddon01">
-                            Upload
-                        </span>
-                    </div>
-                    <div className="custom-file">
-                        <input
-                            type="file"
-                            className="custom-file-input"
-                            id="inputGroupFile01"
-                            aria-describedby="inputGroupFileAddon01"
-                        />
-                        <label className="custom-file-label" htmlFor="inputGroupFile01">
-                            Choose file
-                        </label>
-                    </div>
-                </div>
-                <Link to='/applicationreply' className="nav-font">
-                <Button style={{ backgroundColor: "#03a84e", borderColor: "#03a84e", margin: "35px 0px" }} type="submit">
-                   
-                        Submit Application
-                </Button>
-                </Link>
-
-            </Form>
-        </Container>
-        <Footer/>
-        </>
+    <div className="x">
+        <Navbarapp/>
+        <Fragment>
+            <Grid container
+                direction="row"
+                justify="center"
+                alignItems="center"
+                className={classes.topLayout}
+            >
+                <Grid item lg={12} md={12} xs={12}>
+                    <Paper className={classes.paperLayout}>
+                        <Grid container>
+                            <Grid item md={12} xs={12}>
+                                <div className={classes.logo}>
+                                    <div className={classes.border}>
+                                        APPLICATION
+                                    </div>
+                                </div>
+                            </Grid>
+                            <Grid item md={12} xs={12}>
+                                <StepperForm/>
+                            </Grid>
+                        </Grid>
+                    </Paper>
+                </Grid>
+            </Grid>
+        </Fragment>
+        </div>
     )
-    };
-
-export default application;
+}

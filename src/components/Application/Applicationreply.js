@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container, Col, Row, Form, Button, } from 'react-bootstrap';
+import { Container} from 'react-bootstrap';
 import '../Application/Application.css';
 import Image from 'react-bootstrap/Image'
 import banner from '../../assets/img/bg.png';

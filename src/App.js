@@ -15,7 +15,9 @@ import Adminlogin from './components/Adminpage/Adminlogin';
 import Adminmainpage from './components/Adminpage/Adminmainpage';
 import Trwdatatable from './components/Adminpage/Trwdatatable';
 import Showdatapage from './components/Adminpage/Showdatapage';
+import Admineditpage from './components/Adminpage/Admineditpage';
 import axios from 'axios';
+
 
 class App extends React.Component {
 
@@ -50,7 +52,7 @@ class App extends React.Component {
           userId: result.data.userId
         })
 
-        window.location.href = '/adminmainpage'
+        window.location.href = '/trwdatatable'
       })
       .catch(err => {
         if (err.response.status === 400) {
@@ -71,9 +73,11 @@ class App extends React.Component {
         </Route>
 
         <Route path="/application">
+        
           <ScrollToTop>
             <Application />
           </ScrollToTop>
+          
         </Route>
 
         <Route path="/privacypolicy">
@@ -123,7 +127,14 @@ class App extends React.Component {
               <Showdatapage />
             </ScrollToTop>
           </Route>
-          <Redirect from="/" to="/adminmainpage" />
+
+          <Route path="/admineditform">
+            <ScrollToTop>
+              <Admineditpage />
+            </ScrollToTop>
+          </Route>
+
+          <Redirect from="/" to="/trwdatatable" />
         </Switch>
       )
     }

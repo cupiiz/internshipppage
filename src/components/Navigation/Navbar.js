@@ -1,12 +1,10 @@
-
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import '../Navigation/Navbar.css';
-import Aux from '../hoc/Auxx';
-import { Link as Linklogin} from "react-router-dom";
-import { Link, animateScroll as scroll } from "react-scroll";
+
+import { Link} from "react-scroll";
 
 const navbar = (props) => {
 
@@ -34,7 +32,7 @@ const navbar = (props) => {
               src="../../../logo.png"
               width="110pX"
               height="auto"
-              
+              alt=""
             />
         </Navbar.Brand>
         </Link>
@@ -42,7 +40,7 @@ const navbar = (props) => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav"  >
           <Nav className="ml-auto" style={{ textAlign: "right" }}>
-            <Nav.Link className="nav-font" onClick={ () => openLink() }>Company Website</Nav.Link>
+            <Link className="nav-font" onClick={ () => openLink() }>Company Website</Link>
 
             <Link
               activeClass="active"
@@ -51,8 +49,9 @@ const navbar = (props) => {
               smooth={true}
               offset={-70}
               duration={500}
+              className="nav-font"
             >
-              <Nav.Link className="nav-font" >About</Nav.Link>
+              About
             </Link>
             
             <Link
@@ -62,8 +61,9 @@ const navbar = (props) => {
               smooth={true}
               offset={-70}
               duration={500}
+              className="nav-font"
             >
-              <Nav.Link className="nav-font">Position</Nav.Link>
+              Position
             </Link>
             <Link
               activeClass="active"
@@ -72,16 +72,10 @@ const navbar = (props) => {
               smooth={true}
               offset={-70}
               duration={500}
+              className="nav-font"
             >
-              <Nav.Link className="nav-font" >Join Us</Nav.Link>
+              Join Us
             </Link>
-            
-            
-            <Nav.Link>
-            <Linklogin to='/adminlogin' className="nav-font">
-              Login
-              </Linklogin>
-              </Nav.Link>
 
           </Nav>
         </Navbar.Collapse>

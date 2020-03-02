@@ -11,8 +11,10 @@
   position: relative;
   margin-right: 0;
   border-bottom: 1px solid #03a84e;
-  color: #fff;
-  padding:40px 0px 14px 20px;
+  color: #fff ;
+  font-size: 28.2px;
+  padding:40px 0px 0px 20px;
+  
 
 }
 
@@ -55,6 +57,25 @@
   color: #fff;
 }
 
+.sub-sidebarmenu{
+  flex: none !important;
+  border-bottom: 1px solid #03a84e;
+  padding:15px 0px 15px 30px;
+  font-size: 12px;
+  color: #6c757d;
+}
+
+.sub-sidebarmenu:hover{
+background-color: #03a871;
+transition: background-color 0.3s;
+color: #fff;
+}
+
+.btn-active{
+  background-color: #03a84e;
+  transition: background-color 0.3s;
+  color: #fff;
+}
 
 .sidebarmenu2{
     list-style-type: none;
@@ -155,4 +176,55 @@
     
 }
 
+.sub-title-eidit-form {
+  color: #fff;
+  font-size: 24px;
+}
 
+.table-form-team {
+  padding: 0 50px;
+}
+
+.ant-table-wrapper{
+  background-color: #eeeeee;
+  border-radius: 5px;
+}
+
+.ant-pagination{
+  padding: 0 25px 0 0 !important;
+}
+
+
+
+
+.ant-table-column-title{
+  font-size: 18px;
+  color: #03a84e;
+}
+
+.ant-table-row-cell-break-word{
+  font-size: 16px;
+  color: #fff;
+}
+
+.ant-table-wrapper,
+.ant-table-row-cell-break-word{
+
+  background-color:#1d1d1d !important;
+}
+
+.ant-table-thead > tr > th
+{
+  background-color:#1d1d1d !important;
+  border-bottom: 1px solid #03a84e !important;
+}
+
+.ant-table-tbody > tr > td{
+  border-bottom: 1px solid #03a84e !important;
+}
+
+.btn-add-new-data{
+  background-color: #03a84e!important;
+  border-color: #03a84e!important;
+  margin-bottom: 15px;
+}

@@ -1,16 +1,14 @@
 import React from 'react';
-import Aux from '../hoc/Auxx';
 import '../Mainpage/Mainpage.css';
-import { Container, Card, CardDeck, Carousel, Button } from 'react-bootstrap';
+import { Container, Card, CardDeck, Carousel } from 'react-bootstrap';
 import CardFlip from './Cardflip';
-import { NavLink } from "react-router-dom";
 import Joinus from "../Mainpage/Joinus";
 
-const mainpage = (props) => (
-    <Aux>
-
-
-        <Container id="about">
+const mainpage = (props) => {
+   
+    return (
+        <div style={{backgroundColor:"#171717"}} id="about">
+        <Container >
             <h2 className="header-2">THE RUNWAY AGENCY X INTERNSHIP</h2>
             <p className="normal-text">We are a full-service digital provider. We are both consultants in business planning, marketing plans and digital content media creators, including software development that will help develop your business. And society to move steadily and sustainably.</p>
             
@@ -96,7 +94,7 @@ const mainpage = (props) => (
                 </Carousel>
             </Container>
         </Container>
-        <div style={{ backgroundColor: "#1a1a1a" }}>>
+        <div>
 
             <CardFlip />
         </div>
@@ -104,7 +102,7 @@ const mainpage = (props) => (
         <Container>
             <Joinus/>
         </Container>
-
-    </Aux>
-);
+        </div>
+    )
+    };
 export default mainpage;

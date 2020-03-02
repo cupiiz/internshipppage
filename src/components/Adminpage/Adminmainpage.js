@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Col, Row, Form, Button, } from 'react-bootstrap';
+
 import './Adminmainpage.css';
 import Adminsidebar from './Adminsidebar';
 const adminmainpage = (props) => {
@@ -9,7 +9,7 @@ const adminmainpage = (props) => {
   <Adminsidebar/>
 
   <div className="content">
-    <h1>Admin Page</h1>
+    <p>MANAGE MAIN PAGE</p>
     </div>
     <div className="container-fluid">
   </div>

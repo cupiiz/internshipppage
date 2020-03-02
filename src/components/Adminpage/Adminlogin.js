@@ -1,8 +1,7 @@
 import React from 'react';
 import './Adminlogin.css';
-import { Container, Col, Row, Form, Button, } from 'react-bootstrap';
-import axios from 'axios';
-import { Link } from "react-router-dom";
+import { Form} from 'react-bootstrap';
+
 
 
 class adminlogin extends React.Component {

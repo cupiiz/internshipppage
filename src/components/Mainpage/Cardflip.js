@@ -1,18 +1,18 @@
 
-import React, { useState } from "react";
+import React from "react";
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
 import '../Mainpage/Cardflip.css';
 import { Container ,Row ,Col} from "react-bootstrap";
-import Aux from '../hoc/Auxx';
+
 const CardFlip = (props) => {
 
-    const [] = useState(false);
+    
 
     return (
 
-        <Aux   >
-            
-            <Container id="position">
+        
+            <div style={{backgroundColor:"#202020",paddingTop:"30px"}} id="position">
+            <Container >
                 
             <h2 className="header-card">Our Opening Position</h2>
             
@@ -249,7 +249,7 @@ const CardFlip = (props) => {
             </Row>
             </Container>
             
-        </Aux>
+            </div>
     )
 
 

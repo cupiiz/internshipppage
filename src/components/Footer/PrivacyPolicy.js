@@ -1,10 +1,11 @@
 import React from 'react';
 import Aux from '../hoc/Auxx';
-import { Container, Col, Row, Form, Button, } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image'
 import banner from '../../assets/img/bg.png';
 import Navbarapp from '../Navigation/Navbarapp';
 import './PrivacyPolicy.css';
+import  Footer  from './Footer';
 const privacypolicy = (props) => (
     <Aux>
         <Navbarapp />
@@ -96,7 +97,7 @@ const privacypolicy = (props) => (
 
 
         </Container>
-
+        <Footer />
     </Aux>
 );
 export default privacypolicy;

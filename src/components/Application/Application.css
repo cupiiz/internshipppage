@@ -1,20 +1,41 @@
-
-.font-color{
-    color:#03a84e;
-    font-size: 18px;
-    font-weight: 350 ; 
+.x{
+  
+  background-color: rgb(23, 23, 23);
+  min-height: 100vh !important;
+  
 }
-.header{
-    color:#03a84e;
+
+.makeStyles-topLayout-3{
+    margin: 0px !important;
     
-    font-size: 30px;
-    word-spacing: 4px;
-    letter-spacing: 1px;
-    font-weight: 300;
-    margin-top: 50px;
-    margin-bottom: 30px;
 }
 
-.input-group-text {
-padding: 0.3rem !important;
+.MuiStepIcon-root.MuiStepIcon-active{
+    color:#03a84e !important;
+}
+.MuiButton-containedPrimary {
+    background-color:#03a84e !important;
+}
+
+.makeStyles-logo-1{
+    color:#03a84e !important;
+}
+.makeStyles-border-2{
+    border: 0.15rem solid #03a84e !important;
+}
+.MuiStepIcon-root.MuiStepIcon-completed{
+    color:#03a84e !important;
+}
+.makeStyles-paperLayout-4{
+    margin:5rem auto !important;
+}
+.makeStyles-errorMessage-216{
+    margin-bottom: 10px !important;
+}
+.makeStyles-root-214{
+    margin-bottom: 16px !important;
+}
+
+.MuiGrid-spacing-xs-1 > .MuiGrid-item{
+    padding: 0px !important;
 }

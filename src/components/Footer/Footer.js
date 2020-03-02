@@ -14,7 +14,7 @@ const footer = (props) => {
         <NavLink className="footer-font-link footer-font" to="/privacypolicy">
         Privacy Policy
         </NavLink >
-        <text> | </text>
+        <span style={{color:"#383d41"}}> | </span>
         <NavLink className="footer-font-link footer-font" to="/termsofuse">
         Terms of Use
         </NavLink >

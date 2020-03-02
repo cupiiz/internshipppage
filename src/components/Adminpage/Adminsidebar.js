@@ -1,50 +1,74 @@
-import React from 'react';
-import { Container, Col, Row, Form, Button, } from 'react-bootstrap';
+import React from 'react'
+
 import './Adminmainpage.css';
-import { Link} from "react-router-dom";
-const adminsidebar = (props) => {
-    const onLogout = () => {
+import { Link } from "react-router-dom";
+
+class Adminsidebar extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            adminMenu: false
+        }
+    }
+    onLogout = () => {
         localStorage.clear();
         window.location.href = '/home';
     }
-    return (
+    render() {
+        const { adminMenu } = this.state;
 
-        <div className="sidebar">
-            <header className="headimg">
-                <img
-                    src="../../../logo.png"
-                    width="auto"
-                    height="80px"
-                />
-            </header>
-            <ul className="sidebarmenu2">
-                <Link to='/trwdatatable'>
+        return (
+            <div className="sidebar">
+                <header className="headimg">
+                    <img
+                        src="../../../logo.png"
+                        width="auto"
+                        height="80px"
+                        alt=""
+                    />
+                </header>
+                <ul className="sidebarmenu2">
+                    <Link to='/trwdatatable'>
                         <li className="sidebarmenu">
                             THE RUNWAY AGENCY
-                        </li>
-                    
-                </Link>
+                            </li>
 
-                <div href="">
-                    <li className="sidebarmenu">
-                        TECMOVE
-                    </li>
-                </div>
-                <div>
-                    <li className="sidebarmenu">
+                    </Link>
+
+                    <div href="">
+                        <li className="sidebarmenu">
+                            TECMOVE
+                        </li>
+                    </div>
+                    
+                    <li className={`sidebarmenu ${adminMenu ? 'btn-active' : ''}`} onClick={() => { this.setState({ adminMenu: !adminMenu }) }} >
                         ADMIN
-                     </li>
-                </div>
-                <Link onClick={onLogout}>
-                    <li className="sidebarmenu">
+                    </li>
+                    
+                    {adminMenu && (
+                        <>
+                            <Link to='/adminmainpage'>
+                                <li className="sub-sidebarmenu">
+                                MANAGE MAIN PAGE
+                            </li>
+                            </Link>
+
+                            <Link to='/admineditform'>
+                                <li className="sub-sidebarmenu">
+                                MANAGE APPLICATION FORM
+                            </li>
+                            </Link>
+                        </>
+                    )}
+
+                    <li className="sidebarmenu" onClick={this.onLogout}>
                         LOGOUT
                     </li>
-                </Link>
-            </ul>
-        </div>
+                </ul>
+            </div>
+        )
+    }
 
-    )
-};
+}
 
-
-export default adminsidebar;
+export default Adminsidebar;

@@ -27,7 +27,7 @@ const navbarapp = (props) => {
               src="../../../logo.png"
               width="110pX"
               height="auto"
-              
+              alt=""
             />
             </Link>
         </Navbar.Brand>
@@ -37,12 +37,7 @@ const navbarapp = (props) => {
         <Navbar.Collapse id="responsive-navbar-nav"  >
           <Nav className="ml-auto" style={{ textAlign: "right" }}>
             <Nav.Link className="nav-font" onClick={ () => openLink() }>Company Website</Nav.Link> 
-            
-            <Nav.Link >
-            <Link to='/adminlogin' className="nav-font">
-              Login
-              </Link>
-              </Nav.Link>
+          
             
           </Nav>
         </Navbar.Collapse>
