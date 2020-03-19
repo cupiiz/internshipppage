@@ -11,7 +11,7 @@ const CardFlip = (props) => {
     return (
 
         
-            <div style={{backgroundColor:"#202020",paddingTop:"30px"}} id="position">
+            <div style={{backgroundColor:"#0d0d0d"}} id="position">
             <Container >
                 
             <h2 className="header-card">Our Opening Position</h2>
@@ -30,7 +30,7 @@ const CardFlip = (props) => {
                    
                     style={{width:"300px",height:"350px",margin:"0px auto 30px auto"}}
                 >
-                    <FrontSide style={{ backgroundColor: '#41669d', padding: "0px" }}>
+                    <FrontSide className="card-front-side">
                         <img className="cardimg" src="../../../bg.png" alt="Front End" />
                     </FrontSide>
                     
@@ -54,7 +54,7 @@ const CardFlip = (props) => {
                     
                     style={{width:"300px",height:"350px",margin:"0px auto 30px auto"}}
                 >
-                    <FrontSide style={{ backgroundColor: '#41669d', padding: "0px" }}>
+                    <FrontSide className="card-front-side">
                         <img className="cardimg" src="../../../bg.png" alt="Front End" />
                     </FrontSide>
 

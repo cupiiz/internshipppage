@@ -7,7 +7,7 @@ import Navbarapp from '../Navigation/Navbarapp';
 import './PrivacyPolicy.css';
 import  Footer  from './Footer';
 const privacypolicy = (props) => (
-    <Aux>
+    <Aux >
         <Navbarapp />
         <Image src={banner} width="100% " fluid />
         <Container >

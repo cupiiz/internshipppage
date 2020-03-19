@@ -4,7 +4,7 @@ import './Adminmainpage.css';
 import Adminsidebar from './Adminsidebar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit,faEye,faTrash } from '@fortawesome/free-solid-svg-icons';
-import { Link} from "react-router-dom";
+
 
 const trwdatatable = (props) => {
     return (
@@ -40,14 +40,14 @@ const trwdatatable = (props) => {
                             <td>sssss</td>
                             
                             <td>
-                                <Link to='/showdatapage'>
+                                
                                 <button
                                 className="btn btn-success btn-sm"
                                     
                                 style={{marginRight: '5px'}}>
                                 <FontAwesomeIcon icon={faEye} />
                             </button>
-                            </Link>
+                            
 
                             <button
                                 className="btn btn-warning btn-sm"

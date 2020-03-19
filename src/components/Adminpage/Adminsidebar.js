@@ -35,11 +35,7 @@ class Adminsidebar extends React.Component {
 
                     </Link>
 
-                    <div href="">
-                        <li className="sidebarmenu">
-                            TECMOVE
-                        </li>
-                    </div>
+                    
                     
                     <li className={`sidebarmenu ${adminMenu ? 'btn-active' : ''}`} onClick={() => { this.setState({ adminMenu: !adminMenu }) }} >
                         ADMIN
@@ -53,11 +49,22 @@ class Adminsidebar extends React.Component {
                             </li>
                             </Link>
 
-                            <Link to='/admineditform'>
+                            <Link to='/admineditteam'>
                                 <li className="sub-sidebarmenu">
-                                MANAGE APPLICATION FORM
+                                MANAGE TEAM
                             </li>
                             </Link>
+                            <Link to='/admineditposition'>
+                                <li className="sub-sidebarmenu">
+                                MANAGE POSITION
+                            </li>
+                            </Link>
+                            <Link to='/admineditmentor'>
+                                <li className="sub-sidebarmenu">
+                                MANAGE MENTOR
+                            </li>
+                            </Link>
+                            
                         </>
                     )}
 

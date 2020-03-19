@@ -14,8 +14,10 @@ import ScrollToTop from 'react-router-scroll-top';
 import Adminlogin from './components/Adminpage/Adminlogin';
 import Adminmainpage from './components/Adminpage/Adminmainpage';
 import Trwdatatable from './components/Adminpage/Trwdatatable';
-import Showdatapage from './components/Adminpage/Showdatapage';
-import Admineditpage from './components/Adminpage/Admineditpage';
+
+import Admineditteam from './components/Adminpage/Admineditteam';
+import Admineditposition from './components/Adminpage/Admineditposition';
+import Admineditmentor from './components/Adminpage/Admineditmentor';
 import axios from 'axios';
 
 
@@ -122,15 +124,23 @@ class App extends React.Component {
             </ScrollToTop>
           </Route>
 
-          <Route path="/showdatapage">
+          
+
+          <Route path="/admineditteam">
             <ScrollToTop>
-              <Showdatapage />
+              <Admineditteam />
             </ScrollToTop>
           </Route>
 
-          <Route path="/admineditform">
+          <Route path="/admineditposition">
             <ScrollToTop>
-              <Admineditpage />
+              <Admineditposition />
+            </ScrollToTop>
+          </Route>
+          
+          <Route path="/admineditmentor">
+            <ScrollToTop>
+              <Admineditmentor />
             </ScrollToTop>
           </Route>
 

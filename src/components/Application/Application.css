@@ -1,10 +1,28 @@
-.x{
-  
-  background-color: rgb(23, 23, 23);
-  min-height: 100vh !important;
-  
+
+.layout-out-application{
+    background-color:   #0d0d0d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    height: auto;
+
 }
 
+.register-form-application {
+    padding: 2.5em 5em;
+    background-color: whitesmoke;
+    border: 1px solid #E7E7E7;
+    margin-top: 50px;
+
+}
+
+.header-form-application{
+    font-size: 24px;
+    color: #282828;
+    text-align: center;
+  
+}
 .makeStyles-topLayout-3{
     margin: 0px !important;
     
@@ -38,4 +56,26 @@
 
 .MuiGrid-spacing-xs-1 > .MuiGrid-item{
     padding: 0px !important;
+}
+
+.btn-modal{
+    color:#03a84e;
+}
+
+.btn-register{
+    background-color: #03a84e !important;
+    border-color: #03a84e !important;
+    color: #fff !important;
+    margin-left: 20%;
+    font-size: 16px !important;
+   
+}
+
+.ant-form-item-label{
+    width: 20% !important;
+}
+
+
+.ant-form label{
+    font-size: 16px !important;
 }

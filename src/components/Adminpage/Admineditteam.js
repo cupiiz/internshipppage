@@ -1,19 +1,22 @@
 import React from 'react';
-import { Table, notification } from 'antd';
+import { Table, notification, Popconfirm } from 'antd';
 import './Adminmainpage.css';
 import Adminsidebar from './Adminsidebar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import ModalEditTeam from '../Modals/ModalsTeam';
 import axios from 'axios';
+import 'antd/dist/antd.css';
 
 
-
-class AdminEditForm extends React.Component {
+class AdminEditTeam extends React.Component {
     constructor() {
         super()
         this.state = {
             dataSource: [],
-            teamName: ''
+            teamName: '',
+            openEdit: false,
+            dataEdit: []
         }
     }
 
@@ -93,39 +96,84 @@ class AdminEditForm extends React.Component {
                 });
             })
     }
+
+    onEdit = (data) => {
+        console.log(data);  
+        axios({
+            method: 'POST',
+            url: 'http://localhost:8000/api/team/edit',
+            data: {
+                team_id: data.team_id,
+                team_name: data.team_name,
+            }
+        })
+            .then(res => {
+                notification['success']({
+                    message: 'Edit Success',
+                    description:
+                        'The data has been edited.',
+                });
+                this.setState({ openEdit: false})
+                this._getTeam();
+            })
+            .catch(err => {
+                notification['error']({
+                    message: 'Edit error',
+                    description:
+                        'The data can not edit',
+                });
+            })   
+    }
     render() {
         const { dataSource } = this.state;
         const columns = [
             {
-                title: 'Name',
-                dataIndex: 'team_name',
-                key: 'team_name',
-                width: '65%',
+                title: 'Team_ID',
+                dataIndex: 'team_id',
+                key: 'team_id',
+                width: '20%',
             },
             {
-                title: 'Edit',
+                title: 'Team_Name',
+                dataIndex: 'team_name',
+                key: 'team_name',
+                width: '50%',
+            },
+
+            {
+                title: 'EDIT',
                 render: (rowId) => {
                     return (
                         <button
                             className="btn btn-warning btn-sm"
-                            onClick={() => console.log(rowId.team_id)}
+                            onClick={() => {
+                                this.setState({
+                                    openEdit: true,
+                                    dataEdit: rowId
+                                })
+                            }}
                         >
                             <FontAwesomeIcon icon={faEdit} />
                         </button>
                     )
                 },
+
                 width: '10%',
             },
+            
+           
             {
-                title: 'Delete',
+                title: 'DELETE',
                 render: (rowId) => {
                     return (
-                        <button
-                            className="btn btn-danger btn-sm"
-                            onClick={() => this._removeTeam(rowId.team_id)}
-                        >
-                            <FontAwesomeIcon icon={faTrash} />
-                        </button>
+                        <Popconfirm title="Sure to delete?" onConfirm={() => this._removeTeam(rowId.team_id)}>
+
+                            <button
+                                className="btn btn-danger btn-sm"
+                            >
+                                <FontAwesomeIcon icon={faTrash} />
+                            </button>
+                        </Popconfirm>
                     )
                 },
                 width: '10%',
@@ -137,14 +185,24 @@ class AdminEditForm extends React.Component {
                 <Adminsidebar />
 
                 <div className="content">
-                    <p>MANAGE APPLICATION FORM</p>
+                    <p>MANAGE TEAM</p>
                 </div>
-
+                {this.state.openEdit && (
+                    <ModalEditTeam
+                        open={this.state.openEdit}
+                        close={ () => this.setState({ openEdit: false})}
+                        text="Team"
+                        save={this.onEdit}
+                        data={this.state.dataEdit}
+                    />
+                )}
                 <div className="container-fluid">
                     <br />
                     <div className="table-form-team">
-                        <p className="sub-title-eidit-form">Manage Team</p>
+
+                        <span className="sub-title-edit-form-add">Team Name</span>
                         <input
+                            style={{ marginRight: "15px" }}
                             value={this.state.teamName}
                             onChange={e => this.setState({ teamName: e.target.value })}
                         />
@@ -170,4 +228,4 @@ class AdminEditForm extends React.Component {
 };
 
 
-export default AdminEditForm;
+export default AdminEditTeam;

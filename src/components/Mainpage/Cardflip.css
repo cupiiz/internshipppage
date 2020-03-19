@@ -28,11 +28,15 @@
     word-spacing: 4px;
     letter-spacing: 1px;
     font-weight: 300;
-    
+    margin-top: 30px;
     margin-bottom: 30px;
 }
 
 .card-back-side{
-    background-color: #0d0d0d !important;
+    background-color: #171717 !important;
 }
 
+.card-front-side{
+    
+     padding: 0px !important;
+}

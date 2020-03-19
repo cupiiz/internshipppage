@@ -8,7 +8,7 @@ import './Joinus.css';
 const joinus = (props) => {
     
 return(
-    <div id="joinus">
+    <div id="joinus" style={{padding:"80px 0 "}}>
         <Container  >
             <NavLink to="/application">
                 <Button className="button-main" >

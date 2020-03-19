@@ -3,7 +3,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import '../Navigation/Navbar.css';
-
 import { Link} from "react-scroll";
 
 const navbar = (props) => {
@@ -24,14 +23,15 @@ const navbar = (props) => {
               spy={true}
               smooth={true}
               offset={-70}
-              duration={500}
+              duration={800}
             >            
-        <Navbar.Brand className="mr-auto" style={{ width: "auto",marginLeft:"28px", display: "flex" }}>
+        <Navbar.Brand className="mr-auto" style={{ width: "auto",margin:"5px 0px 5px 28px", display: "flex" }}>
           
             <img
               src="../../../logo.png"
               width="110pX"
               height="auto"
+              
               alt=""
             />
         </Navbar.Brand>
@@ -39,8 +39,8 @@ const navbar = (props) => {
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav"  >
-          <Nav className="ml-auto" style={{ textAlign: "right" }}>
-            <Link className="nav-font" onClick={ () => openLink() }>Company Website</Link>
+          <Nav className="ml-auto" style={{ textAlign: "right" ,marginBottom:"5px" ,marginRight:"10px"}}>
+            <a  className="nav-font" onClick={ () => openLink() }>Company Website</a>
 
             <Link
               activeClass="active"
@@ -48,7 +48,7 @@ const navbar = (props) => {
               spy={true}
               smooth={true}
               offset={-70}
-              duration={500}
+              duration={800}
               className="nav-font"
             >
               About
@@ -60,7 +60,7 @@ const navbar = (props) => {
               spy={true}
               smooth={true}
               offset={-70}
-              duration={500}
+              duration={800}
               className="nav-font"
             >
               Position
@@ -71,7 +71,7 @@ const navbar = (props) => {
               spy={true}
               smooth={true}
               offset={-70}
-              duration={500}
+              duration={800}
               className="nav-font"
             >
               Join Us

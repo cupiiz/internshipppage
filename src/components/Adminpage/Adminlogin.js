@@ -34,7 +34,7 @@ class adminlogin extends React.Component {
 
                     <Form controlId="formGridPassword" >
                         <Form.Control
-                            type="text"
+                            type="password"
                             placeholder="Password"
                             value={password}
                             onChange={e => this.setState({ password: e.target.value })} />
