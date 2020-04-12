@@ -79,3 +79,23 @@
 .ant-form label{
     font-size: 16px !important;
 }
+
+.reply-header{
+    color:#03a84e;
+    text-align: center;
+    font-size: 30px;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+    font-weight: 300;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+.reply-text{
+    color: #FFFFFF;
+    font-size: 18px;
+    line-height: 145%;
+    font-weight: 300;
+    
+    word-break: break-word;
+}
+

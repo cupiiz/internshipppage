@@ -12,10 +12,10 @@ return(
     <div >
 <Navbarapp/>
 <Image src={banner} width="100% " fluid/> 
-        <Container style={{width:"50%"}} className="fix-app-form">
+        <Container style={{width:"50%"}} >
         
-            <div className="header">Thank you for your application</div>
-            <p className="normal-text" style={{paddingBottom:"50px"}}>We will get back to you as soon as possible.
+            <div className="reply-header">Thank you for your application</div>
+            <p className="reply-text" style={{paddingBottom:"50px"}}>We will get back to you as soon as possible.
 Please check your spam folder regularly as e-mails from Thailand might end up there.</p>
          
         </Container>

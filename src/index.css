@@ -12,6 +12,9 @@ body, html{
   
 }
 
+.fixed-top{
+  z-index: 200 !important;
+}
 a:hover {
   text-decoration:none !important;
 }
