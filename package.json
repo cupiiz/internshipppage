@@ -26,6 +26,7 @@
     "react-flippy": "^0.1.5",
     "react-hook-form": "^4.9.8",
     "react-modal": "^3.11.2",
+    "react-pdf": "^4.1.0",
     "react-router-dom": "^5.1.2",
     "react-router-scroll-top": "^0.2.1",
     "react-scripts": "3.3.0",
@@ -52,6 +53,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ],
-    "proxy":"http://localhost:8000"
+    "proxy": "http://localhost:8000"
   }
 }

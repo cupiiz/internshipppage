@@ -14,10 +14,13 @@ import ScrollToTop from 'react-router-scroll-top';
 import Adminlogin from './components/Adminpage/Adminlogin';
 import Adminmainpage from './components/Adminpage/Adminmainpage';
 import Trwdatatable from './components/Adminpage/Trwdatatable';
-
+import Approvedapp from './components/Adminpage/Approvedapp';
+import Declineapp from './components/Adminpage/Declineapp';
 import Admineditteam from './components/Adminpage/Admineditteam';
 import Admineditposition from './components/Adminpage/Admineditposition';
 import Admineditmentor from './components/Adminpage/Admineditmentor';
+import Admineditmailtemp from './components/Adminpage/Admineditmailtemp';
+import Test from './test/test';
 import axios from 'axios';
 
 
@@ -68,6 +71,13 @@ class App extends React.Component {
   render() {
     let route = (
       <Switch>
+
+        <Route path="/test">
+          <ScrollToTop>
+            <Test />
+          </ScrollToTop>
+        </Route>
+
         <Route path="/home">
           <ScrollToTop>
             <Form />
@@ -75,11 +85,11 @@ class App extends React.Component {
         </Route>
 
         <Route path="/application">
-        
+      
           <ScrollToTop>
             <Application />
           </ScrollToTop>
-          
+
         </Route>
 
         <Route path="/privacypolicy">
@@ -141,6 +151,23 @@ class App extends React.Component {
           <Route path="/admineditmentor">
             <ScrollToTop>
               <Admineditmentor />
+            </ScrollToTop>
+          </Route>
+
+          <Route path="/approvedapp">
+            <ScrollToTop>
+              <Approvedapp />
+            </ScrollToTop>
+          </Route>
+
+          <Route path="/declineapp">
+            <ScrollToTop>
+              <Declineapp />
+            </ScrollToTop>
+          </Route>
+          <Route path="/admineditmailtemp">
+            <ScrollToTop>
+              <Admineditmailtemp />
             </ScrollToTop>
           </Route>
 

@@ -14,10 +14,10 @@ const customStyles = {
     },
     content: {
         position: 'absolute',
-      top: '25%',
+      top: '5%',
       left: '25%',
       right: '25%',
-      bottom: '25%',
+      bottom: '5%',
       border: '1px solid #ccc',
       background: '#fff',
       overflow: 'auto',
@@ -31,38 +31,43 @@ const customStyles = {
 
 Modal.setAppElement('#root')
 
-function ModalEditTeam({ open, close, save, text, data }) {
+function ModalsAddMentor({ open, close, save, text, data }) {
+    console.log('aaa', data);
     
-    const [name, setName] = React.useState(data.team_name)
+    const [mentorId, setMentorId] = React.useState(data.mentor_id)
     return (
         <Modal
             isOpen={open}
             onRequestClose={close}
             style={customStyles}
-            contentLabel="Edit Data"
+            contentLabel="Add Mentor"
         >
-            <h1>EDIT DATA</h1>
+            <h1>ADD MENTOR</h1>
             <Form>
                 
 
-                <Form.Group as={Row} controlId="formPlaintextPassword">
-                    <Form.Label column sm="2">
-                        {` ${text}`}
+                <Form.Group as={Row} >
+                    <Form.Label column sm="5">
+                        {`New Mentor :`}
                     </Form.Label>
-                    <Col sm="10">
-                        <Form.Control type="text" defaultValue={data.team_name} onChange={(e) => setName(e.target.value)} />
+                    <Col sm="5">
+                        <Form.Control type="text"  defaultValue={data.mentor_id} onChange={(e) => setMentorId(e.target.value)} />
+                       
                     </Col>
                 </Form.Group>
 
+
                 <Button onClick={close} className="btn-modal">Close</Button>
                 <Button className="btn-modal" onClick={() => save({
-                    team_id: data.team_id,
-                    team_name: name
-                })}>Update</Button>
+                    application_id: data.application_id,
+                    mentor_id :mentorId
+                
+                    
+                })}>Add</Button>
             </Form>
 
         </Modal>
     );
 }
 
-export default ModalEditTeam;
+export default ModalsAddMentor;

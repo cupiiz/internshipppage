@@ -30,12 +30,22 @@ class Adminsidebar extends React.Component {
                 <ul className="sidebarmenu2">
                     <Link to='/trwdatatable'>
                         <li className="sidebarmenu">
-                            THE RUNWAY AGENCY
+                            APPLICATION
                             </li>
 
                     </Link>
+                    <Link to='/approvedapp'>
+                        <li className="sidebarmenu">
+                            APPROVED APPLICATION
+                            </li>
 
-                    
+                    </Link>
+                    <Link to='/declineapp'>
+                        <li className="sidebarmenu">
+                           DECLINE APPLICATION
+                            </li>
+
+                    </Link>
                     
                     <li className={`sidebarmenu ${adminMenu ? 'btn-active' : ''}`} onClick={() => { this.setState({ adminMenu: !adminMenu }) }} >
                         ADMIN
@@ -62,6 +72,11 @@ class Adminsidebar extends React.Component {
                             <Link to='/admineditmentor'>
                                 <li className="sub-sidebarmenu">
                                 MANAGE MENTOR
+                            </li>
+                            </Link>
+                            <Link to='/admineditmailtemp'>
+                                <li className="sub-sidebarmenu">
+                                MANAGE MAILTEMP
                             </li>
                             </Link>
                             

@@ -32,11 +32,13 @@ const customStyles = {
 Modal.setAppElement('#root')
 
 function ModalEditMentor({ open, close, save, text, data }) {
-    console.log('aaa', data);
-    const [firstName, setFirstName] = React.useState('')
-    const [lastName, setLastName] = React.useState('')
-    const [email, setEmail] = React.useState('')
-    const [phoneNumber, setPhoneNumber] = React.useState('')
+ 
+    const [firstName, setFirstName] = React.useState(data.mentor_firstname)
+    const [lastName, setLastName] = React.useState(data.mentor_lastname)
+    const [email, setEmail] = React.useState(data.mentor_email)
+    const [phoneNumber, setPhoneNumber] = React.useState(data.mentor_phonenumber)
+    
+
     return (
         <Modal
             isOpen={open}
@@ -46,79 +48,47 @@ function ModalEditMentor({ open, close, save, text, data }) {
         >
             <h1>EDIT DATA</h1>
             <Form>
-                <Form.Group as={Row} >
-                    <Form.Label column sm="5">
-                        {` ${text} First Name`}
-                    </Form.Label>
-                    <Col sm="5">
-                        <Form.Control plaintext readOnly defaultValue={data.firstname} />
-                    </Col>
-                </Form.Group>
-
+               
                 <Form.Group as={Row} >
                     <Form.Label column sm="5">
                         {`New ${text} First Name`}
                     </Form.Label>
                     <Col sm="5">
-                        <Form.Control type="text" onChange={(e) => setFirstName(e.target.value)} />
+                        <Form.Control type="text" defaultValue={data.mentor_firstname}  onChange={(e) => setFirstName(e.target.value)} />
+                       
                     </Col>
                 </Form.Group>
 
-
-
-                <Form.Group as={Row} >
-                    <Form.Label column sm="5">
-                        {` ${text} Last Name`}
-                    </Form.Label>
-                    <Col sm="5">
-                        <Form.Control plaintext readOnly defaultValue={data.lastname} />
-                    </Col>
-                </Form.Group>
 
                 <Form.Group as={Row} >
                     <Form.Label column sm="5">
                         {`New ${text} Last Name`}
                     </Form.Label>
                     <Col sm="5">
-                        <Form.Control type="text" onChange={(e) => setLastName(e.target.value)} />
+                        <Form.Control type="text"  defaultValue={data.mentor_lastname} onChange={(e) => setLastName(e.target.value)} />
                     </Col>
                 </Form.Group>
 
 
-                <Form.Group as={Row} >
-                    <Form.Label column sm="5">
-                        {` ${text} Email`}
-                    </Form.Label>
-                    <Col sm="5">
-                        <Form.Control plaintext readOnly defaultValue={data.email} />
-                    </Col>
-                </Form.Group>
-
+            
                 <Form.Group as={Row} >
                     <Form.Label column sm="5">
                         {`New ${text} Email`}
                     </Form.Label>
                     <Col sm="5">
-                        <Form.Control type="text" onChange={(e) => setEmail(e.target.value)} />
+                        <Form.Control type="text" defaultValue={data.mentor_email}  onChange={(e) => setEmail(e.target.value)} />
                     </Col>
                 </Form.Group>
 
 
-                <Form.Group as={Row} >
-                    <Form.Label column sm="5">
-                        {` ${text} Phone Number`}
-                    </Form.Label>
-                    <Col sm="5">
-                        <Form.Control plaintext readOnly defaultValue={data.phonenumber} />
-                    </Col>
-                </Form.Group>
+              
 
                 <Form.Group as={Row} >
                     <Form.Label column sm="5">
                         {`New ${text} Phone Number`}
                     </Form.Label>
                     <Col sm="5">
-                        <Form.Control type="text" onChange={(e) => setPhoneNumber(e.target.value)} />
+                        <Form.Control type="text" defaultValue={data.mentor_phonenumber}  onChange={(e) => setPhoneNumber(e.target.value)} />
                     </Col>
                 </Form.Group>
 
@@ -126,10 +96,11 @@ function ModalEditMentor({ open, close, save, text, data }) {
                 <Button onClick={close} className="btn-modal">Close</Button>
                 <Button className="btn-modal" onClick={() => save({
                     mentor_id :data.mentor_id,
-                    firstname :firstName,
-                    lastname : lastName,
-                    email : email,
-                    phonenumber :phoneNumber
+                    
+                    mentor_firstname :firstName,
+                    mentor_lastname : lastName,
+                    mentor_email : email,
+                    mentor_phonenumber :phoneNumber
                     
                 })}>Update</Button>
             </Form>

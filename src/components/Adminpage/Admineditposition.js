@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, notification ,Popconfirm} from 'antd';
+import { Table, notification, Popconfirm } from 'antd';
 import './Adminmainpage.css';
 import Adminsidebar from './Adminsidebar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,7 +15,7 @@ class AdminEditPosition extends React.Component {
         this.state = {
             dataSource: [],
             positionName: '',
-            teamId:'',
+            teamId: '',
             openEdit: false,
             dataEdit: []
         }
@@ -55,18 +55,25 @@ class AdminEditPosition extends React.Component {
                 team_id: this.state.teamId
             }
         })
-            .then(res => {
-                console.log(res);
-                notification['success']({
-                    message: 'Create Success',
-                    description:
-                        'The data added to database.',
-                });
-                this.setState({ positionName: '' })
-                this.setState({ teamId: '' })
-                this._getPosition();
-                
-            })
+            .then(
+                res => {
+                    if (res.data.message != 'This position has already create.') {
+                        notification['success']({
+                            message: 'Create Success',
+                            description:
+                                'The data added to database.',
+                        });
+                        this.setState({ positionName: '' })
+                        this.setState({ teamId: '' })
+                        this._getPosition();
+                    } else {
+                        notification['error']({
+                            message: 'Create error',
+                            description:
+                                res.data.message
+                        });
+                    }
+                })
             .catch(err => {
                 this.setState({ positionName: '' })
                 this.setState({ teamId: '' })
@@ -77,6 +84,7 @@ class AdminEditPosition extends React.Component {
                 });
             })
     }
+
 
     _removePosition = (rowId) => {
         axios({
@@ -104,7 +112,7 @@ class AdminEditPosition extends React.Component {
             })
     }
     onEdit = (data) => {
-        console.log(data);  
+        console.log(data);
         axios({
             method: 'POST',
             url: 'http://localhost:8000/api/position/edit',
@@ -113,28 +121,35 @@ class AdminEditPosition extends React.Component {
                 position_name: data.position_name,
                 team_id: data.team_id,
                 team_name: data.team_name
-                
-               
-                
-                
+
             }
         })
             .then(res => {
-                notification['success']({
-                    message: 'Edit Success',
-                    description:
-                        'The data has been edited.',
-                });
-                this.setState({ openEdit: false})
-                this._getPosition();
+                if (res.data.message != 'This position has already create.') {
+                    notification['success']({
+                        message: 'Edit Success',
+                        description:
+                            'The data has been edited.',
+                    });
+                    this.setState({ openEdit: false })
+                    this._getPosition();
+                } else {
+                    notification['error']({
+                        message: 'Edit error',
+                        description:
+                            res.data.message,
+                    });
+                }
+
             })
             .catch(err => {
+
                 notification['error']({
                     message: 'Edit error',
                     description:
-                        'The data can not edit',
+                        'The data can not Edit.',
                 });
-            })   
+            })
     }
     render() {
         const { dataSource } = this.state;
@@ -188,13 +203,13 @@ class AdminEditPosition extends React.Component {
                     return (
                         <Popconfirm title="Sure to delete?" onConfirm={() => this._removePosition(rowId.position_id)}>
 
-                        <button
-                            className="btn btn-danger btn-sm"
-                        >
-                            <FontAwesomeIcon icon={faTrash} />
-                        </button>
+                            <button
+                                className="btn btn-danger btn-sm"
+                            >
+                                <FontAwesomeIcon icon={faTrash} />
+                            </button>
                         </Popconfirm>
-                       
+
                     )
                 },
                 width: '10%',
@@ -211,7 +226,7 @@ class AdminEditPosition extends React.Component {
                 {this.state.openEdit && (
                     <ModalEditPosition
                         open={this.state.openEdit}
-                        close={ () => this.setState({ openEdit: false})}
+                        close={() => this.setState({ openEdit: false })}
                         text="Position"
                         save={this.onEdit}
                         data={this.state.dataEdit}
@@ -220,20 +235,20 @@ class AdminEditPosition extends React.Component {
                 <div className="container-fluid">
                     <br />
                     <div className="table-form-team">
-                       
+
                         <span className="sub-title-edit-form-add">Position Name</span>
                         <input
-                        style={{marginRight:"15px"}}
+                            style={{ marginRight: "15px" }}
                             value={this.state.positionName}
-                        
+
                             onChange={e => this.setState({ positionName: e.target.value })}
 
                         />
                         <span className="sub-title-edit-form-add">Team ID</span>
                         <input
-                            style={{marginRight:"15px"}}
+                            style={{ marginRight: "15px" }}
                             value={this.state.teamId}
-                            onChange={e => this.setState({ teamId: e.target.value})}
+                            onChange={e => this.setState({ teamId: e.target.value })}
 
                         />
 
@@ -246,7 +261,7 @@ class AdminEditPosition extends React.Component {
                         <Table
                             dataSource={dataSource}
                             columns={columns}
-                            pagination={{ pageSize: 5 }}
+                            pagination={{ pageSize: 7 }}
 
                         />
                     </div>

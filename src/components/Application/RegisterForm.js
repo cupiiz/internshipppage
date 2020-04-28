@@ -1,9 +1,9 @@
-import React, { Component, Fragment } from 'react'
-import { Form, Input, Button, message, Select, DatePicker, notification, Upload } from 'antd';
+import React, { Component} from 'react'
+import { Form, Input, Button, message, Select, DatePicker, notification} from 'antd';
 import Axios from 'axios';
 import moment from 'moment';
-import { UploadOutlined } from '@ant-design/icons';
 
+import './Application.css';
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;
@@ -25,7 +25,7 @@ class RegisterForm extends Component {
                 position: '',
                 startDate: '',
                 endDate: '',
-                resume:''
+                resume: ''
             },
             waitingResponse: false,
             university: 0,
@@ -33,8 +33,38 @@ class RegisterForm extends Component {
             team: 0,
             teamData: [],
             position: 0,
-            positionData: []
+            positionData: [],
+            formPDF: null,
+            pathPDF: ''
         }
+    }
+
+    onUpload = (event) => {
+        const file = event.target.files[0];
+        this.setState({
+            formPDF: file
+        })
+    }
+
+    onSubmitPDF = () => {
+        const bodyFormData = new FormData();
+        bodyFormData.append('PDF', this.state.formPDF);
+        Axios({
+            method: 'post',
+            url: 'http://localhost:8000/upload',
+            data: bodyFormData,
+            headers: { 'Content-Type': 'multipart/form-data' }
+        })
+            .then(res => {
+                const pathPDF = res.data;
+                this.setState({
+                    pathPDF: pathPDF.data
+                })
+                return true
+            })
+            .catch(err => {
+                return false
+            })
     }
 
     componentDidMount() {
@@ -88,45 +118,59 @@ class RegisterForm extends Component {
 
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                const payload = {
-                    first_name: values.first_name,
-                    last_name: values.last_name,
-                    email: values.email,
-                    phoneNumber: values.PhoneNumber,
-                    faculty_name: values.faculty,
-                    branch_name: values.branch,
-                    internship_startdate: moment(values.rangeDate[0]).format('YYYY/MM/DD HH:mm:ss'),
-                    internship_enddate: moment(values.rangeDate[1]).format('YYYY/MM/DD HH:mm:ss'),
-                    internship_resume: null,
-                    university_id: values.uni_id,
-                    team_id: values.team_id,
-                    position_id: values.position1_id,
-                    resume:values.resume
-                }
-
-                Axios.post('http://localhost:8000/api/application/create', payload)
-                    .then(() => {
-
-                        notification['success']({
-                            message: 'Register Success!!',
-                            description:
-                                'description na',
-                            duration: 2
-                        });
-
-                        setTimeout(() => { window.location.href = '/' }, 2000);
-
+                const bodyFormData = new FormData();
+                bodyFormData.append('PDF', this.state.formPDF);
+                Axios({
+                    method: 'post',
+                    url: 'http://localhost:8000/upload',
+                    data: bodyFormData,
+                    headers: { 'Content-Type': 'multipart/form-data' }
+                })
+                    .then(res => {
+                        const pathPDF = res.data;
+                        this.setState({
+                            pathPDF: pathPDF.data
+                        })
+                        const payload = {
+                            first_name: values.first_name,
+                            last_name: values.last_name,
+                            email: values.email,
+                            phoneNumber: values.PhoneNumber,
+                            faculty_name: values.faculty,
+                            branch_name: values.branch,
+                            internship_startdate: moment(values.rangeDate[0]).format('YYYY/MM/DD HH:mm:ss'),
+                            internship_enddate: moment(values.rangeDate[1]).format('YYYY/MM/DD HH:mm:ss'),
+                            internship_resume: pathPDF.data,
+                            university_id: values.uni_id,
+                            team_id: values.team_id,
+                            position_id: values.position1_id
+                        }
+                        Axios.post('http://localhost:8000/api/application/create', payload)
+                            .then(() => {
+                                notification['success']({
+                                    message: 'Register Success!!',
+                                    description:
+                                        'The application has been registed',
+                                    duration: 2
+                                });
+                                window.location.href = '/Applicationreply'
+                               
+                            })
+                            .catch(() => {
+                                notification['error']({
+                                    message: 'Register Error!!',
+                                    description:
+                                        'The application can not be regist',
+                                    duration: 2
+                                });
+                                window.location.reload()
+                            })
                     })
-                    .catch(() => {
-                        notification['error']({
-                            message: 'Register Error!!',
-                            description:
-                                'description na',
-                            duration: 2
-                        });
-
-                        setTimeout(() => { window.location.reload() }, 1000);
+                    .catch(err => {
+                        message.warning("error upload pdf file", 2);
                     })
+               
+
             }
         })
     }
@@ -158,23 +202,6 @@ class RegisterForm extends Component {
         const { getFieldDecorator } = this.props.form;
         const { waitingResponse, universityData, teamData, positionData } = this.state;
 
-        const props = {
-            name: 'file',
-            action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-            headers: {
-                authorization: 'authorization-text',
-            },
-            onChange(info) {
-                if (info.file.status !== 'uploading') {
-                    console.log(info.file, info.fileList);
-                }
-                if (info.file.status === 'done') {
-                    message.success(`${info.file.name} file uploaded successfully`);
-                } else if (info.file.status === 'error') {
-                    message.error(`${info.file.name} file upload failed.`);
-                }
-            },
-        };
         return (
             <div>
                 <Form onSubmit={this.handleSubmit} labelCol={{ span: 8 }} wrapperCol={{ span: 16 }}>
@@ -191,6 +218,7 @@ class RegisterForm extends Component {
                                 placeholder="Please input first name"
                                 disabled={waitingResponse}
                                 maxLength={30}
+                                onChange={(e) => this.setState({ first_name: e.target.value })}
                                 onKeyPress={(e) => {
                                     e.key === 'Enter' && e.preventDefault()
                                 }}
@@ -212,6 +240,7 @@ class RegisterForm extends Component {
                                 placeholder="Please input last name"
                                 disabled={waitingResponse}
                                 maxLength={30}
+                                onChange={(e) => this.setState({ last_name: e.target.value })}
                                 onKeyPress={(e) => {
                                     e.key === 'Enter' && e.preventDefault()
                                 }}
@@ -235,6 +264,7 @@ class RegisterForm extends Component {
                                 size="large"
                                 placeholder="Please input email"
                                 disabled={waitingResponse}
+                                onChange={(e) => this.setState({ email: e.target.value })}
                                 maxLength={50}
                                 onKeyPress={(e) => {
                                     e.key === 'Enter' && e.preventDefault()
@@ -258,6 +288,7 @@ class RegisterForm extends Component {
                                 placeholder="Please input phonenumber"
                                 disabled={waitingResponse}
                                 maxLength={10}
+                                onChange={(e) => this.setState({ phoneNumber: e.target.value })}
                                 onKeyPress={(e) => {
                                     e.key === 'Enter' && e.preventDefault()
                                 }}
@@ -275,10 +306,12 @@ class RegisterForm extends Component {
                         })(
                             <Select
                                 size="large"
-
-                                style={{ width: 350 }}
+                                showSearch
+                                optionFilterProp="children"
+                                style={{ width:"65%" }}
                                 placeholder="Please select University"
                                 onChange={(value) => this.setState({ university: value })}
+                                
                             >
                                 {universityData.map(values => {
                                     return <Option key={values.universities_id} value={values.universities_id} >{values.university}</Option>
@@ -299,6 +332,7 @@ class RegisterForm extends Component {
                                 placeholder="Please input faculty name"
                                 disabled={waitingResponse}
                                 maxLength={50}
+                                onChange={(e) => this.setState({ faculty_name: e.target.value })}
                                 onKeyPress={(e) => {
                                     e.key === 'Enter' && e.preventDefault()
                                 }}
@@ -319,6 +353,7 @@ class RegisterForm extends Component {
                                 placeholder="Please input branch name"
                                 disabled={waitingResponse}
                                 maxLength={50}
+                                onChange={(e) => this.setState({ branch_name: e.target.value })}
                                 onKeyPress={(e) => {
                                     e.key === 'Enter' && e.preventDefault()
                                 }}
@@ -336,7 +371,7 @@ class RegisterForm extends Component {
                         })(
                             <Select
                                 size="large"
-                                style={{ width: 240 }}
+                                style={{ width: "50%" }}
                                 placeholder="Please select Team"
                                 onChange={(value) => this.setState({ team: value })}
                             >
@@ -360,7 +395,7 @@ class RegisterForm extends Component {
                         })(
                             <Select
                                 size="large"
-                                style={{ width: 240 }}
+                                style={{ width: "50%" }}
                                 placeholder="Please select Position"
                                 onChange={(value) => this.setState({ position: value })}
                             >
@@ -384,20 +419,21 @@ class RegisterForm extends Component {
                             ],
                             initialValue: undefined
                         })(
-                           <RangePicker size={'large'} onChange={(value) => {
-                        this.setState({ startDate: value[0], endDate: value[1] })
+                            <RangePicker style={{width:"100% "}} size={'large'} onChange={(value) => {
+                                this.setState({ startDate: value[0], endDate: value[1] })
                             }} />
                         )}
                     </Form.Item>
 
 
                     <Form.Item label="Resume">
-                            <Upload {...props}>
-                                <Button >
-                                    <UploadOutlined/> Click to Upload
-                                </Button>
-                            </Upload>
-
+                        <input
+                            type="file"
+                            
+                            name="upload"
+                            accept="application/pdf"
+                            onChange={this.onUpload}
+                        />
                     </Form.Item>
 
 

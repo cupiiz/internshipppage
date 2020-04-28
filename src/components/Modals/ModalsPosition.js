@@ -33,8 +33,8 @@ Modal.setAppElement('#root')
 
 function ModalEditPosition({ open, close, save, text, data }) {
     console.log('aaa', data);
-    const [name, setName] = React.useState('')
-    const [id, setId] = React.useState('')
+    const [name, setName] = React.useState(data.positions_name)
+    const [id, setId] = React.useState(data.team_id)
     return (
         <Modal
             isOpen={open}
@@ -44,39 +44,24 @@ function ModalEditPosition({ open, close, save, text, data }) {
         >
             <h1>EDIT DATA</h1>
             <Form>
-                <Form.Group as={Row} >
-                    <Form.Label column sm="3">
-                        {` ${text}`}
+                
+
+                    <Form.Group as={Row} >
+                    <Form.Label column sm="2">
+                        {`${text} :`}
                     </Form.Label>
                     <Col sm="5">
-                        <Form.Control plaintext readOnly defaultValue={data.positions_name} />
+                        <Form.Control type="text"defaultValue={data.positions_name}  onChange={(e) => setName(e.target.value)} />
                     </Col>
                     </Form.Group>
 
-                    <Form.Group as={Row} >
-                    <Form.Label column sm="3">
-                        {`New ${text}`}
-                    </Form.Label>
-                    <Col sm="5">
-                        <Form.Control type="text" onChange={(e) => setName(e.target.value)} />
-                    </Col>
-                    </Form.Group>
 
                     <Form.Group as={Row} >
-                    <Form.Label column sm="3">
-                        {` Team Id`}
+                    <Form.Label column sm="2">
+                        {`Team Id :`}
                     </Form.Label>
                     <Col sm="5">
-                        <Form.Control plaintext readOnly defaultValue={data.team_id} />
-                    </Col>
-                    </Form.Group>
-
-                    <Form.Group as={Row} >
-                    <Form.Label column sm="3">
-                        {`New Team Id`}
-                    </Form.Label>
-                    <Col sm="5">
-                        <Form.Control type="text" onChange={(e) => setId(e.target.value)} />
+                        <Form.Control type="text" defaultValue={data.team_id} onChange={(e) => setId(e.target.value)} />
                     </Col>
                 </Form.Group>
 

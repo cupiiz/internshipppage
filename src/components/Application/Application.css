@@ -99,3 +99,6 @@
     word-break: break-word;
 }
 
+.ant-input{
+    width: 50% !important;
+}

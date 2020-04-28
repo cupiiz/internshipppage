@@ -14,10 +14,10 @@ const customStyles = {
     },
     content: {
         position: 'absolute',
-      top: '25%',
+      top: '5%',
       left: '25%',
       right: '25%',
-      bottom: '25%',
+      bottom: '5%',
       border: '1px solid #ccc',
       background: '#fff',
       overflow: 'auto',
@@ -31,38 +31,49 @@ const customStyles = {
 
 Modal.setAppElement('#root')
 
-function ModalEditTeam({ open, close, save, text, data }) {
+function ModalsViewEmail({ open, close, text, data }) {
     
-    const [name, setName] = React.useState(data.team_name)
+    
     return (
         <Modal
             isOpen={open}
             onRequestClose={close}
             style={customStyles}
-            contentLabel="Edit Data"
+            contentLabel="Application View"
         >
-            <h1>EDIT DATA</h1>
+            <h1>Emailteamp</h1>
             <Form>
-                
-
-                <Form.Group as={Row} controlId="formPlaintextPassword">
-                    <Form.Label column sm="2">
-                        {` ${text}`}
+                <Form.Group as={Row} >
+                    <Form.Label column sm="2" >
+                        {` Subject :`}
                     </Form.Label>
                     <Col sm="10">
-                        <Form.Control type="text" defaultValue={data.team_name} onChange={(e) => setName(e.target.value)} />
+                    <Form.Label column sm="20">
+                        {data.mailtemp_subject}
+                    </Form.Label>
                     </Col>
                 </Form.Group>
 
+                <Form.Group as={Row} >
+                    <Form.Label column sm="2">
+                        {` Text :`}
+                    </Form.Label>
+                    <Col sm="10">
+                    <Form.Label column sm="20">
+                        {data.mailtemp_text}
+                    </Form.Label>
+                    </Col>
+                </Form.Group>
+
+
+
+
                 <Button onClick={close} className="btn-modal">Close</Button>
-                <Button className="btn-modal" onClick={() => save({
-                    team_id: data.team_id,
-                    team_name: name
-                })}>Update</Button>
+                
             </Form>
 
         </Modal>
     );
 }
 
-export default ModalEditTeam;
+export default ModalsViewEmail;

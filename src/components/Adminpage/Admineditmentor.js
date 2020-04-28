@@ -14,10 +14,10 @@ class AdminEditMentor extends React.Component {
         super()
         this.state = {
             dataSource: [],
-            firstName: '',
-            lastName: '',
-            email: '',
-            phoneNumber: '',
+            mentor_firstName: '',
+            mentor_lastName: '',
+            mentor_email: '',
+            mentor_phoneNumber: '',
             openEdit: false,
             dataEdit: []
         }
@@ -36,10 +36,10 @@ class AdminEditMentor extends React.Component {
                 const result = res.data.data.map(row => ({
                     key: row.mentor_id,
                     mentor_id: row.mentor_id,
-                    firstname: row.firstname,
-                    lastname: row.lastname,
-                    email: row.email,
-                    phonenumber: row.phonenumber
+                    mentor_firstname: row.mentor_firstname,
+                    mentor_lastname: row.mentor_lastname,
+                    mentor_email: row.mentor_email,
+                    mentor_phonenumber: row.mentor_phonenumber
                 }))
                 this.setState({
                     dataSource: result
@@ -54,10 +54,10 @@ class AdminEditMentor extends React.Component {
             method: 'POST',
             url: 'http://localhost:8000/api/mentors/create',
             data: {
-                mentor_firstname: this.state.firstName,
-                mentor_lastname: this.state.lastName,
-                mentor_email: this.state.email,
-                mentor_phonenumber: this.state.phoneNumber
+                mentor_firstname: this.state.mentor_firstName,
+                mentor_lastname: this.state.mentor_lastName,
+                mentor_email: this.state.mentor_email,
+                mentor_phonenumber: this.state.mentor_phoneNumber
             }
         })
             .then(res => {
@@ -67,17 +67,17 @@ class AdminEditMentor extends React.Component {
                     description:
                         'The data added to database.',
                 });
-                this.setState({ firstName: '' })
-                this.setState({ lastName: '' })
-                this.setState({ email: '' })
-                this.setState({ phoneNumber: '' })
+                this.setState({ mentor_firstName: '' })
+                this.setState({ mentor_lastName: '' })
+                this.setState({ mentor_email: '' })
+                this.setState({ mentor_phoneNumber: '' })
                 this._getMentors();
             })
             .catch(err => {
-                this.setState({ firstName: '' })
-                this.setState({ lastName: '' })
-                this.setState({ email: '' })
-                this.setState({ phoneNumber: '' })
+                this.setState({ mentor_firstName: '' })
+                this.setState({ mentor_lastName: '' })
+                this.setState({ mentor_email: '' })
+                this.setState({ mentor_phoneNumber: '' })
                 notification['error']({
                     message: 'Create error',
                     description:
@@ -113,16 +113,19 @@ class AdminEditMentor extends React.Component {
     }
 
     onEdit = (data) => {
+       
         console.log(data);  
+        
         axios({
             method: 'POST',
             url: 'http://localhost:8000/api/mentors/edit',
             data: {
+                
                 mentor_id:data.mentor_id,
-                mentor_firstname: data.firstname,
-                mentor_lastname: data.lastname,
-                mentor_email: data.email,
-                mentor_phonenumber: data.phonenumber
+                mentor_firstname: data.mentor_firstname,
+                mentor_lastname: data.mentor_lastname,
+                mentor_email: data.mentor_email,
+                mentor_phonenumber: data.mentor_phonenumber
             }
         })
             .then(res => {
@@ -153,26 +156,26 @@ class AdminEditMentor extends React.Component {
             },
             {
                 title: 'First_Name',
-                dataIndex: 'firstname',
-                key: 'firstname',
+                dataIndex: 'mentor_firstname',
+                key: 'mentor_firstname',
                 width: '10%',
             },
             {
                 title: 'Last_Name',
-                dataIndex: 'lastname',
-                key: 'lastname',
+                dataIndex: 'mentor_lastname',
+                key: 'mentor_lastname',
                 width: '10%',
             },
             {
                 title: 'Email',
-                dataIndex: 'email',
-                key: 'email',
+                dataIndex: 'mentor_email',
+                key: 'mentor_email',
                 width: '15%',
             },
             {
                 title: 'Phone_Number',
-                dataIndex: 'phonenumber',
-                key: 'phonenumber',
+                dataIndex: 'mentor_phonenumber',
+                key: 'mentor_phonenumber',
                 width: '10%',
             },
 
@@ -223,6 +226,7 @@ class AdminEditMentor extends React.Component {
                 <div className="content">
                     <p>MANAGE MENTOR</p>
                 </div>
+
                 {this.state.openEdit && (
                     <ModalEditMentor
                         open={this.state.openEdit}
@@ -232,6 +236,7 @@ class AdminEditMentor extends React.Component {
                         data={this.state.dataEdit}
                     />
                 )}
+
                 <div className="container-fluid">
                     <br />
                     <div className="table-form-team">
@@ -239,30 +244,30 @@ class AdminEditMentor extends React.Component {
                     <span className="sub-title-edit-form-add">First Name</span>
                         <input
                         style={{marginRight:"15px"}}
-                            value={this.state.firstName}
+                            value={this.state.mentor_firstName}
                         
-                            onChange={e => this.setState({ firstName: e.target.value })}
+                            onChange={e => this.setState({ mentor_firstName: e.target.value })}
 
                         />
                         <span className="sub-title-edit-form-add">Last Name</span>
                         <input
                             style={{marginRight:"15px"}}
-                            value={this.state.lastName}
-                            onChange={e => this.setState({ lastName: e.target.value})}
+                            value={this.state.mentor_lastName}
+                            onChange={e => this.setState({ mentor_lastName: e.target.value})}
 
                         />
                          <span className="sub-title-edit-form-add">Email</span>
                         <input
                             style={{marginRight:"15px"}}
-                            value={this.state.email}
-                            onChange={e => this.setState({ email: e.target.value})}
+                            value={this.state.mentor_email}
+                            onChange={e => this.setState({ mentor_email: e.target.value})}
 
                         />
                          <span className="sub-title-edit-form-add">Phone Number</span>
                         <input
                             style={{marginRight:"15px"}}
-                            value={this.state.phoneNumber}
-                            onChange={e => this.setState({ phoneNumber: e.target.value})}
+                            value={this.state.mentor_phoneNumber}
+                            onChange={e => this.setState({ mentor_phoneNumber: e.target.value})}
 
                         />
 
@@ -275,7 +280,7 @@ class AdminEditMentor extends React.Component {
                         <Table
                             dataSource={dataSource}
                             columns={columns}
-                            pagination={{ pageSize: 5 }}
+                            pagination={{ pageSize: 7 }}
 
                         />
                     </div>

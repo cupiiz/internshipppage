@@ -51,15 +51,26 @@ class AdminEditTeam extends React.Component {
                 team_name: this.state.teamName
             }
         })
-            .then(res => {
-                console.log(res);
-                notification['success']({
-                    message: 'Create Success',
-                    description:
-                        'The data added to database.',
-                });
-                this.setState({ teamName: '' })
-                this._getTeam();
+        
+            .then(
+                res => {  
+                      
+                        if(res.data.message!='This team has already create.'){
+                            notification['success']({
+                                message: 'Create Success',
+                                description:
+                                    'The data added to database.',
+                            });
+                            this.setState({ teamName: '' })
+                            this._getTeam();
+                        }else{
+                            notification['error']({
+                                message: 'Create error',
+                                description:
+                                    res.data.message,
+                            });
+                        }
+  
             })
             .catch(err => {
                 this.setState({ teamName: '' })
@@ -108,22 +119,32 @@ class AdminEditTeam extends React.Component {
             }
         })
             .then(res => {
-                notification['success']({
-                    message: 'Edit Success',
-                    description:
-                        'The data has been edited.',
-                });
+                if(res.data.message!='This team has already create.'){
+                    notification['success']({
+                        message: 'Edit Success',
+                        description:
+                            'The data has been edited.',
+                    });
                 this.setState({ openEdit: false})
                 this._getTeam();
-            })
-            .catch(err => {
+            }else{
                 notification['error']({
                     message: 'Edit error',
                     description:
-                        'The data can not edit',
+                        res.data.message,
                 });
-            })   
-    }
+            }
+
+})
+.catch(err => {
+    
+    notification['error']({
+        message: 'Edit error',
+        description:
+            'The data can not Edit.',
+    });
+})
+}
     render() {
         const { dataSource } = this.state;
         const columns = [
@@ -216,7 +237,7 @@ class AdminEditTeam extends React.Component {
                         <Table
                             dataSource={dataSource}
                             columns={columns}
-                            pagination={{ pageSize: 5 }}
+                            pagination={{ pageSize: 7 }}
 
                         />
                     </div>

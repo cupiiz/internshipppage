@@ -3,16 +3,16 @@ import { Table, notification, Popconfirm } from 'antd';
 import './Adminmainpage.css';
 import Adminsidebar from './Adminsidebar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {  faTrash ,faEye,faEnvelope} from '@fortawesome/free-solid-svg-icons';
+import {  faEdit,faTrash ,faEye} from '@fortawesome/free-solid-svg-icons';
 
 import ModalsView from '../Modals/ModalsView';
-import ModalsEmail from '../Modals/ModalsEmail';
+import ModalsAddMentor from '../Modals/ModalsAddMentor';
 import axios from 'axios';
 import 'antd/dist/antd.css';
 
             
 
-class Trwdatatable extends React.Component {
+class Approvedapp extends React.Component {
     constructor() {
         super()
         this.state = {
@@ -30,31 +30,26 @@ class Trwdatatable extends React.Component {
             position_name:'',
             team_id:'',
             position_id:'',
-            emailTmp: [],
+            mentor_firstname:'',
+            mentor_id:'',
+
             internship_resume:'',
             status:'',
             openView: false,
             dataView:[],
-            openMail:false,
-            dataMail:[]
+           openEdit: false,
+            dataEdit: []
         }
     }
 
     componentDidMount() {
         this._getApplication();
-        this._getTmpEmail();
-    }
-
-    _getTmpEmail = () => {
-        axios.get('http://localhost:8000/api/mailtemp/get')
-            .then( res => this.setState({ emailTmp: res.data.data }))
-            .catch( err => console.log(err))
     }
 
     _getApplication = () => {
         axios({
             method: 'GET',
-            url: 'http://localhost:8000/api/application/get'
+            url: 'http://localhost:8000/api/application/getapproved'
         })
             .then(res => {
                 const result = res.data.data.map(row => ({
@@ -72,11 +67,15 @@ class Trwdatatable extends React.Component {
                     team_name:row.team_name,
                     positions_name:row.positions_name,
                     internship_resume:row.internship_resume,
-                    status:row.status
-
+                    status:row.status,
+                    mentor_firstname:row.mentor_firstname,
+                    mentor_id:row.mentor_id
                 }))
+               
                 this.setState({
                     dataSource: result
+                    
+                    
                 })
             })
             .catch(err => {
@@ -110,43 +109,37 @@ class Trwdatatable extends React.Component {
                 });
             })
     }
-
-    statusChange = (data) => {
-        console.log(data); 
+    addMentor = (data) => {
+        console.log(data);  
         axios({
             method: 'POST',
-            url: 'http://localhost:8000/api/application/statuschange',
+            url: 'http://localhost:8000/api/application/addmentors',
             data: {
-                app_status: data.status,
-                app_id: data.application_id,
-                email:data.email,
-                idTmp: data.mailtemp_id
+                mentor_id: data.mentor_id,
+                app_id: data.application_id
             }
         })
             .then(res => {
                 notification['success']({
-                    message: 'Reply Success',
+                    message: 'Add Success',
                     description:
-                        'Mail has been reply.',
+                        'Mentor has been add',
                 });
-                
-                this.setState({ openMail: false})
+                this.setState({ openEdit: false})
                 this._getApplication();
             })
             .catch(err => {
                 notification['error']({
-                    message: 'Edit error',
+                    message: 'Add error',
                     description:
-                        'The data can not edit',
+                        'Can not add Mentor',
                 });
             })   
     }
-   
-   
     render() {
         const { dataSource } = this.state;
         const columns = [
-            {   
+            {
                 title: 'id',
                 dataIndex: 'application_id',
                 key: 'application_id',
@@ -178,25 +171,25 @@ class Trwdatatable extends React.Component {
                 width: '5%',
             },
             {
-                title: 'Status',
-                dataIndex: 'status',
-                key: 'status',
-                width: '3%',
+                title: 'Mentor',
+                dataIndex: 'mentor_firstname',
+                key: 'mentor_firstname',
+                width: '5%',
             },
             {
                 title: '',
                 render: (rowId) => {
                     return (
                         <button
-                            className="btn btn-primary btn-sm "
+                            className="btn btn-warning btn-sm"
                             onClick={() => {
                                 this.setState({
-                                    openMail: true,
-                                    dataMail: rowId
+                                    openEdit: true,
+                                    dataEdit: rowId
                                 })
                             }}
                         >
-                            <FontAwesomeIcon icon={faEnvelope} />
+                            <FontAwesomeIcon icon={faEdit} />
                         </button>
                     )
                 },
@@ -246,20 +239,17 @@ class Trwdatatable extends React.Component {
                 <Adminsidebar />
 
                 <div className="content">
-                    <p>APPLICATION</p>
+                    <p>APPROVED APPLICATION</p>
                 </div>
-                
-                {this.state.openMail && (
-                    <ModalsEmail
-                        open={this.state.openMail}
-                        close={ () => this.setState({ openMail: false})}
-                        text="Application"
-                        save={this.statusChange}
-                        data={this.state.dataMail}
-                        emailTmp={this.state.emailTmp}
+                {this.state.openEdit && (
+                    <ModalsAddMentor
+                        open={this.state.openEdit}
+                        close={ () => this.setState({ openEdit: false})}
+                        text="Mentor"
+                        save={this.addMentor}
+                        data={this.state.dataEdit}
                     />
                 )}
-
                 {this.state.openView && (
                     <ModalsView
                         open={this.state.openView}
@@ -288,4 +278,4 @@ class Trwdatatable extends React.Component {
 };
 
 
-export default Trwdatatable;
+export default Approvedapp;

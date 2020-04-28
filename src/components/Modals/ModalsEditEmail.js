@@ -17,7 +17,7 @@ const customStyles = {
       top: '25%',
       left: '25%',
       right: '25%',
-      bottom: '25%',
+      bottom: '15%',
       border: '1px solid #ccc',
       background: '#fff',
       overflow: 'auto',
@@ -31,33 +31,40 @@ const customStyles = {
 
 Modal.setAppElement('#root')
 
-function ModalEditTeam({ open, close, save, text, data }) {
-    
-    const [name, setName] = React.useState(data.team_name)
+function ModalsEditEmail({ open, close, save, text, data }) {
+
+    const [editSubject, setSubject] = React.useState(data.mailtemp_subject)
+    const [editText, setText] = React.useState(data.mailtemp_text)
     return (
         <Modal
             isOpen={open}
             onRequestClose={close}
             style={customStyles}
-            contentLabel="Edit Data"
+            contentLabel="Edit Mail"
         >
-            <h1>EDIT DATA</h1>
+            <h1>EDIT Mailtemp</h1>
             <Form>
-                
+
 
                 <Form.Group as={Row} controlId="formPlaintextPassword">
                     <Form.Label column sm="2">
-                        {` ${text}`}
+                        {`Subject :`}
                     </Form.Label>
                     <Col sm="10">
-                        <Form.Control type="text" defaultValue={data.team_name} onChange={(e) => setName(e.target.value)} />
+                        <Form.Control type="text" defaultValue={data.mailtemp_subject} onChange={(e) => setSubject(e.target.value)} />
                     </Col>
+                </Form.Group>
+
+                <Form.Group controlId="exampleForm.ControlTextarea1">
+                    <Form.Label>Text :</Form.Label>
+                    <Form.Control defaultValue={data.mailtemp_text} as="textarea" rows="3" onChange={(e) => setText(e.target.value)}/>
                 </Form.Group>
 
                 <Button onClick={close} className="btn-modal">Close</Button>
                 <Button className="btn-modal" onClick={() => save({
-                    team_id: data.team_id,
-                    team_name: name
+                    mailtemp_id: data.mailtemp_id,
+                    mailtemp_subject: editSubject,
+                    mailtemp_text: editText
                 })}>Update</Button>
             </Form>
 
@@ -65,4 +72,4 @@ function ModalEditTeam({ open, close, save, text, data }) {
     );
 }
 
-export default ModalEditTeam;
+export default ModalsEditEmail;
